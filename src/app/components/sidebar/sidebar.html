@@ -1,10 +1,29 @@
-<p>sidebar works!</p>
-<button matButton="filled" color="primary" [routerLink]="['/dashboard']">
-  Dashboard
-</button>
-<button matButton="filled" color="accent" [routerLink]="['/requests']">
-  Requests
-</button>
-<button matButton="filled" color="warn" [routerLink]="['/settings']">
-  Settings
-</button>
+<div
+  class="sidenav"
+  [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''"
+>
+  <div class="logo-container">
+    <button class="logo">
+      <i class="fal fa-bars"></i>
+    </button>
+    <div class="logo-text">ElectroFlex</div>
+    <button class="btn-close">
+      <i class="fal fa-times close-icon"></i>
+    </button>
+  </div>
+  <div class="sidenav-nav">
+    @for (item of items; track $index) {
+      <li class="sidenav-nav-item">
+        <a
+          class="sidenav-nav-link"
+          [routerLink]="item.routerLink"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i class="sidenav-link-icon" [class]="item.icon"></i>
+          <span class="sidenav-link-text">{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </div>
+</div>
