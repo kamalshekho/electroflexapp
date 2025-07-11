@@ -9,5 +9,9 @@ import { Main } from './main/main';
   styleUrl: './app.css',
 })
 export class App {
-  isLeftSidebarCollapsed = signal<boolean>(true);
+  isLeftSidebarCollapsed = signal<boolean>(false);
+
+  public changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
+    this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
+  }
 }

@@ -1,5 +1,12 @@
 import { NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  input,
+  Output,
+  output,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -9,7 +16,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
-  isLeftSidebarCollapsed = input.required<boolean>();
+  @Input() isLeftSidebarCollapsed: boolean = false;
+  @Output() changeIsLeftSidebarCollapsed = new EventEmitter<boolean>();
+
   items = [
     {
       routerLink: 'dashboard',
@@ -32,4 +41,8 @@ export class Sidebar {
       label: 'Settings',
     },
   ];
+
+  public toggleCollapse(): void {
+    this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed);
+  }
 }
