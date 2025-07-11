@@ -45,4 +45,8 @@ export class Sidebar {
   public toggleCollapse(): void {
     this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed);
   }
+
+  public closeSidenav(): void {
+    this.changeIsLeftSidebarCollapsed.emit(true);
+  }
 }
