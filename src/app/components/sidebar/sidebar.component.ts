@@ -12,10 +12,10 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   imports: [RouterModule, NgClass],
-  templateUrl: './sidebar.html',
-  styleUrl: './sidebar.css',
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css',
 })
-export class Sidebar {
+export class SidebarComponent {
   @Input() isLeftSidebarCollapsed: boolean = false;
   @Output() changeIsLeftSidebarCollapsed = new EventEmitter<boolean>();
 
