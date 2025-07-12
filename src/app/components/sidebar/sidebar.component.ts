@@ -1,13 +1,7 @@
 import { NgClass } from '@angular/common';
-import {
-  Component,
-  EventEmitter,
-  Input,
-  input,
-  Output,
-  output,
-} from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MenuService } from '../../core/menu.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,28 +13,8 @@ export class SidebarComponent {
   @Input() isLeftSidebarCollapsed: boolean = false;
   @Output() changeIsLeftSidebarCollapsed = new EventEmitter<boolean>();
 
-  items = [
-    {
-      routerLink: 'dashboard',
-      icon: 'fal fa-home',
-      label: 'Dashboard',
-    },
-    {
-      routerLink: 'requests',
-      icon: 'fal fa-clipboard',
-      label: 'Requests',
-    },
-    {
-      routerLink: 'electricians',
-      icon: 'fal fa-clipboard-user',
-      label: 'Electricians',
-    },
-    {
-      routerLink: 'settings',
-      icon: 'fal fa-cog',
-      label: 'Settings',
-    },
-  ];
+  private menuService = inject(MenuService);
+  items = this.menuService.items;
 
   public toggleCollapse(): void {
     this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed);
