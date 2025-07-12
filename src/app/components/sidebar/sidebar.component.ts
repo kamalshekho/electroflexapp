@@ -1,0 +1,52 @@
+import { NgClass } from '@angular/common';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  input,
+  Output,
+  output,
+} from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-sidebar',
+  imports: [RouterModule, NgClass],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css',
+})
+export class SidebarComponent {
+  @Input() isLeftSidebarCollapsed: boolean = false;
+  @Output() changeIsLeftSidebarCollapsed = new EventEmitter<boolean>();
+
+  items = [
+    {
+      routerLink: 'dashboard',
+      icon: 'fal fa-home',
+      label: 'Dashboard',
+    },
+    {
+      routerLink: 'requests',
+      icon: 'fal fa-clipboard',
+      label: 'Requests',
+    },
+    {
+      routerLink: 'electricians',
+      icon: 'fal fa-clipboard-user',
+      label: 'Electricians',
+    },
+    {
+      routerLink: 'settings',
+      icon: 'fal fa-cog',
+      label: 'Settings',
+    },
+  ];
+
+  public toggleCollapse(): void {
+    this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed);
+  }
+
+  public closeSidenav(): void {
+    this.changeIsLeftSidebarCollapsed.emit(true);
+  }
+}

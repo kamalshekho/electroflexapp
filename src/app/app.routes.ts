@@ -1,13 +1,15 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './components/dashboard/dashboard';
-import { Requests } from './components/requests/requests';
-import { PageNotFound } from './components/page-not-found/page-not-found';
-import { Settings } from './components/settings/settings';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RequestComponent } from './components/requests/request.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { ElectriciansComponent } from './components/electricians/electricians.component';
 
 export const routes: Routes = [
-  { path: 'dashboard', component: Dashboard },
-  { path: 'requests', component: Requests },
-  { path: 'settings', component: Settings },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'requests', component: RequestComponent },
+  { path: 'electricians', component: ElectriciansComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', component: PageNotFound },
+  { path: '**', component: PageNotFoundComponent },
 ];
