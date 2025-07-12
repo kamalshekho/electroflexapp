@@ -7,8 +7,8 @@
   transition: all 0.5s ease;
   background: #f4f7fa;
   padding: 3rem;
-  height: 100vh; /* volle Bildschirmhöhe */
-  box-sizing: border-box; /* damit padding nicht Höhe/Breite vergrößert */
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .body-trimmed {
