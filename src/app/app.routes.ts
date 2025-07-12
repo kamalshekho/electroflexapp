@@ -6,10 +6,26 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ElectriciansComponent } from './components/electricians/electricians.component';
 
 export const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'requests', component: RequestComponent },
-  { path: 'electricians', component: ElectriciansComponent },
-  { path: 'settings', component: SettingsComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    data: { label: 'Dashboard', icon: 'fal fa-home' },
+  },
+  {
+    path: 'requests',
+    component: RequestComponent,
+    data: { label: 'Requests', icon: 'fal fa-clipboard' },
+  },
+  {
+    path: 'electricians',
+    component: ElectriciansComponent,
+    data: { label: 'Electricians', icon: 'fal fa-clipboard-user' },
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    data: { label: 'Settings', icon: 'fal fa-cog' },
+  },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
