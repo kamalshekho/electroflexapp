@@ -1,13 +1,8 @@
 import { NgClass } from '@angular/common';
-import {
-  Component,
-  EventEmitter,
-  Input,
-  input,
-  Output,
-  output,
-} from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router, Route, RouterModule } from '@angular/router';
+import { MenuService } from '../../core/menu.service';
+import { MenuItem } from '../../interfaces/menuItem';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,28 +14,17 @@ export class SidebarComponent {
   @Input() isLeftSidebarCollapsed: boolean = false;
   @Output() changeIsLeftSidebarCollapsed = new EventEmitter<boolean>();
 
-  items = [
-    {
-      routerLink: 'dashboard',
-      icon: 'fal fa-home',
-      label: 'Dashboard',
-    },
-    {
-      routerLink: 'requests',
-      icon: 'fal fa-clipboard',
-      label: 'Requests',
-    },
-    {
-      routerLink: 'electricians',
-      icon: 'fal fa-clipboard-user',
-      label: 'Electricians',
-    },
-    {
-      routerLink: 'settings',
-      icon: 'fal fa-cog',
-      label: 'Settings',
-    },
-  ];
+  menuItems: MenuItem[] = [];
+
+  constructor(private router: Router) {
+    this.menuItems = this.router.config
+      .filter((route) => route.data?.['label'])
+      .map((route) => ({
+        routerLink: route.path || '',
+        label: route.data!['label'],
+        icon: route.data!['icon'],
+      }));
+  }
 
   public toggleCollapse(): void {
     this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed);
