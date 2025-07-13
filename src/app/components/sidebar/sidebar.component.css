@@ -17,7 +17,6 @@
   display: flex;
   align-items: center;
   padding: 0.938rem 0.938rem 0 0.938rem;
-  /* width: 100%; this make problem */
 }
 
 .sidenav .logo-container .logo {
@@ -61,9 +60,13 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: calc(100% - 3.65rem);
   cursor: pointer;
+}
+
+.sidenav-nav-bottom {
+  margin-top: auto;
+  margin-bottom: 2rem;
 }
 
 .sidenav-nav .sidenav-nav-item {
@@ -90,7 +93,7 @@
 }
 
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
-  margin-left: 1.5rem;
+  margin-left: 0.7rem;
 }
 
 .sidenav-nav .sidenav-nav-item:hover .sidenav-nav-link {
