@@ -1,1 +1,12 @@
-<p>requests works!</p>
+<div class="request-container">
+  <div class="request-header">
+    <button class="button" role="button">+ Add New Request</button>
+  </div>
+
+  <ag-grid-angular
+    style="width: 100%; flex: 1; min-height: 0"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    class="ag-theme-material"
+  ></ag-grid-angular>
+</div>

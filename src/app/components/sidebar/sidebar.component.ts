@@ -14,16 +14,32 @@ export class SidebarComponent {
   @Input() isLeftSidebarCollapsed: boolean = false;
   @Output() changeIsLeftSidebarCollapsed = new EventEmitter<boolean>();
 
-  menuItems: MenuItem[] = [];
+  mainMenuItems: MenuItem[] = [];
+  secondaryMenuItems: MenuItem[] = [];
+
+  get allMenuSections() {
+    return [
+      { items: this.mainMenuItems, section: 'top' },
+      { items: this.secondaryMenuItems, section: 'bottom' },
+    ];
+  }
 
   constructor(private router: Router) {
-    this.menuItems = this.router.config
+    const items = this.router.config
       .filter((route) => route.data?.['label'])
       .map((route) => ({
         routerLink: route.path || '',
         label: route.data!['label'],
         icon: route.data!['icon'],
       }));
+
+    this.mainMenuItems = items.filter(
+      (item) => !['Settings', 'Logout'].includes(item.label),
+    );
+
+    this.secondaryMenuItems = items.filter((item) =>
+      ['Settings', 'Logout'].includes(item.label),
+    );
   }
 
   public toggleCollapse(): void {

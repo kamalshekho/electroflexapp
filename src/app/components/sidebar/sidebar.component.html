@@ -14,20 +14,29 @@
     }
   </div>
   <div class="sidenav-nav">
-    @for (item of menuItems; track $index) {
-      <li class="sidenav-nav-item">
-        <a
-          class="sidenav-nav-link"
-          [routerLink]="item.routerLink"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          @if (!isLeftSidebarCollapsed) {
-            <span class="sidenav-link-text">{{ item.label }}</span>
-          }
-        </a>
-      </li>
+    @for (section of allMenuSections; track section.section) {
+      <div
+        [ngClass]="{
+          'sidenav-nav-top': section.section === 'top',
+          'sidenav-nav-bottom': section.section === 'bottom',
+        }"
+      >
+        @for (item of section.items; track item.label) {
+          <li class="sidenav-nav-item">
+            <a
+              class="sidenav-nav-link"
+              [routerLink]="item.routerLink"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="sidenav-link-icon" [class]="item.icon"></i>
+              @if (!isLeftSidebarCollapsed) {
+                <span class="sidenav-link-text">{{ item.label }}</span>
+              }
+            </a>
+          </li>
+        }
+      </div>
     }
   </div>
 </div>
