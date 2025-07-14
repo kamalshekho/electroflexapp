@@ -645,7 +645,7 @@ export class RequestComponent {
 
   openCreateRequestDialog(): void {
     const dialogRef = this.dialog.open(RequestFormComponent, {
-      width: '1150px',
+      width: '1100px',
       maxHeight: '125vh',
       data: {},
     });
