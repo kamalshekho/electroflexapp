@@ -24,7 +24,6 @@ export class RequestComponent {
       customerLastName: 'Mustermann',
       email: 'max@example.com',
       phone: '0123456789',
-      category: 'Elektriker',
       serviceType: 'Installation',
       description: 'Neue Steckdose',
       internalNote: 'Eilig',
@@ -45,7 +44,6 @@ export class RequestComponent {
       customerLastName: 'Schmidt',
       email: 'anna.schmidt@example.com',
       phone: '0987654321',
-      category: 'Sanitär',
       serviceType: 'Reparatur',
       description: 'Leck im Wasserhahn',
       internalNote: '',
@@ -66,7 +64,6 @@ export class RequestComponent {
       customerLastName: 'Fischer',
       email: 'lisa.fischer@example.com',
       phone: '01711234567',
-      category: 'Heizung',
       serviceType: 'Wartung',
       description: 'Heizung kontrollieren',
       internalNote: 'Kunde wünscht Anruf vor Besuch',
@@ -87,7 +84,6 @@ export class RequestComponent {
       customerLastName: 'Becker',
       email: 'thomas.becker@example.com',
       phone: '0221123456',
-      category: 'Elektriker',
       serviceType: 'Notdienst',
       description: 'Stromausfall im Wohnzimmer',
       internalNote: '',
@@ -96,7 +92,6 @@ export class RequestComponent {
       status: RequestStatus.OPEN,
       electricianName: undefined,
     },
-    // — weitere 21 Einträge in gleicher Struktur —
     {
       id: 5,
       street: 'Gartenweg',
@@ -109,7 +104,6 @@ export class RequestComponent {
       customerLastName: 'Neumann',
       email: 'julia.neumann@example.com',
       phone: '0351223344',
-      category: 'Sanitär',
       serviceType: 'Installation',
       description: 'Neuer Wasseranschluss',
       internalNote: 'Barzahlung bevorzugt',
@@ -130,7 +124,6 @@ export class RequestComponent {
       customerLastName: 'Klein',
       email: 'martin.klein@example.com',
       phone: '0691234567',
-      category: 'Heizung',
       serviceType: 'Reparatur',
       description: 'Heizung heizt nicht',
       internalNote: '',
@@ -151,7 +144,6 @@ export class RequestComponent {
       customerLastName: 'Wolf',
       email: 'nina.wolf@example.com',
       phone: '0711234567',
-      category: 'Elektriker',
       serviceType: 'Wartung',
       description: 'Sicherungskasten prüfen',
       internalNote: 'Kunde ist allergisch gegen Staub',
@@ -172,7 +164,6 @@ export class RequestComponent {
       customerLastName: 'Schneider',
       email: 'oliver.schneider@example.com',
       phone: '0341234567',
-      category: 'Sanitär',
       serviceType: 'Notdienst',
       description: 'Rohrbruch im Keller',
       internalNote: '',
@@ -193,7 +184,6 @@ export class RequestComponent {
       customerLastName: 'Lang',
       email: 'sabine.lang@example.com',
       phone: '0421123456',
-      category: 'Heizung',
       serviceType: 'Installation',
       description: 'Neue Heizung installieren',
       internalNote: 'Lieferung am Vortag',
@@ -214,7 +204,6 @@ export class RequestComponent {
       customerLastName: 'Becker',
       email: 'frank.becker@example.com',
       phone: '0911987654',
-      category: 'Elektriker',
       serviceType: 'Reparatur',
       description: 'Lampe flackert',
       internalNote: '',
@@ -235,7 +224,6 @@ export class RequestComponent {
       customerLastName: 'Maier',
       email: 'katrin.maier@example.com',
       phone: '0231234567',
-      category: 'Sanitär',
       serviceType: 'Wartung',
       description: 'Kalk entfernen',
       internalNote: 'Termin am Nachmittag bevorzugt',
@@ -256,7 +244,6 @@ export class RequestComponent {
       customerLastName: 'Fuchs',
       email: 'juergen.fuchs@example.com',
       phone: '0201234567',
-      category: 'Heizung',
       serviceType: 'Notdienst',
       description: 'Heizung ausgefallen',
       internalNote: '',
@@ -277,7 +264,6 @@ export class RequestComponent {
       customerLastName: 'Schwarz',
       email: 'andrea.schwarz@example.com',
       phone: '0211123456',
-      category: 'Elektriker',
       serviceType: 'Installation',
       description: 'Außenbeleuchtung installieren',
       internalNote: '',
@@ -298,7 +284,6 @@ export class RequestComponent {
       customerLastName: 'Krause',
       email: 'stefan.krause@example.com',
       phone: '0511234567',
-      category: 'Sanitär',
       serviceType: 'Reparatur',
       description: 'Toilette verstopft',
       internalNote: '',
@@ -319,7 +304,6 @@ export class RequestComponent {
       customerLastName: 'Bauer',
       email: 'monika.bauer@example.com',
       phone: '0621123456',
-      category: 'Heizung',
       serviceType: 'Wartung',
       description: 'Heizung entlüften',
       internalNote: '',
@@ -340,7 +324,6 @@ export class RequestComponent {
       customerLastName: 'Schulz',
       email: 'peter.schulz@example.com',
       phone: '0761123456',
-      category: 'Elektriker',
       serviceType: 'Notdienst',
       description: 'Kurzschluss in der Küche',
       internalNote: 'Schnelle Hilfe erforderlich',
@@ -361,7 +344,6 @@ export class RequestComponent {
       customerLastName: 'Wagner',
       email: 'sandra.wagner@example.com',
       phone: '0361123456',
-      category: 'Sanitär',
       serviceType: 'Installation',
       description: 'Neuer Wasserhahn',
       internalNote: '',
@@ -382,7 +364,6 @@ export class RequestComponent {
       customerLastName: 'Hartmann',
       email: 'tobias.hartmann@example.com',
       phone: '0561123456',
-      category: 'Heizung',
       serviceType: 'Reparatur',
       description: 'Thermostat defekt',
       internalNote: '',
@@ -403,7 +384,6 @@ export class RequestComponent {
       customerLastName: 'Neubauer',
       email: 'claudia.neubauer@example.com',
       phone: '0941123456',
-      category: 'Elektriker',
       serviceType: 'Wartung',
       description: 'Elektrische Anlage prüfen',
       internalNote: 'Kunde ist abends erreichbar',
@@ -424,7 +404,6 @@ export class RequestComponent {
       customerLastName: 'Lorenz',
       email: 'andreas.lorenz@example.com',
       phone: '0931123456',
-      category: 'Sanitär',
       serviceType: 'Notdienst',
       description: 'Wasserrohrbruch',
       internalNote: 'Sehr dringend',
@@ -445,7 +424,6 @@ export class RequestComponent {
       customerLastName: 'Friedrich',
       email: 'marina.friedrich@example.com',
       phone: '0621123444',
-      category: 'Heizung',
       serviceType: 'Installation',
       description: 'Neue Wärmepumpe',
       internalNote: '',
@@ -466,7 +444,6 @@ export class RequestComponent {
       customerLastName: 'Zimmermann',
       email: 'daniel.zimmermann@example.com',
       phone: '0613123456',
-      category: 'Elektriker',
       serviceType: 'Reparatur',
       description: 'Defekte Steckdose',
       internalNote: '',
@@ -487,7 +464,6 @@ export class RequestComponent {
       customerLastName: 'Kuhn',
       email: 'eva.kuhn@example.com',
       phone: '0361123457',
-      category: 'Sanitär',
       serviceType: 'Wartung',
       description: 'Duschkopf austauschen',
       internalNote: '',
@@ -508,7 +484,6 @@ export class RequestComponent {
       customerLastName: 'Lange',
       email: 'martin.lange@example.com',
       phone: '0561123457',
-      category: 'Heizung',
       serviceType: 'Notdienst',
       description: 'Heizung fällt immer wieder aus',
       internalNote: '',
@@ -529,7 +504,6 @@ export class RequestComponent {
       customerLastName: 'Wolf',
       email: 'susanne.wolf@example.com',
       phone: '0231234568',
-      category: 'Elektriker',
       serviceType: 'Installation',
       description: 'Neue Außensteckdose',
       internalNote: '',
@@ -546,15 +520,10 @@ export class RequestComponent {
       headerName: 'ID',
       filter: 'agNumberColumnFilter',
       width: 70,
-    },
-    {
-      field: 'status',
-      headerName: 'Status',
-      filter: 'agSetColumnFilter',
-      filterParams: {
-        values: Object.values(RequestStatus),
+      cellStyle: {
+        color: 'grey',
+        fontSize: '12px',
       },
-      width: 130,
     },
     {
       field: 'customerFirstName',
@@ -567,17 +536,63 @@ export class RequestComponent {
       filter: 'agTextColumnFilter',
     },
     {
+      field: 'status',
+      headerName: 'Status',
+      filter: 'agTextColumnFilter',
+      width: 130,
+      cellStyle: (params) => {
+        const status = params.value as RequestStatus;
+        switch (status) {
+          case RequestStatus.OPEN:
+            return {
+              backgroundColor: '#80b9ff',
+              color: 'black',
+              fontWeight: '',
+            };
+          case RequestStatus.IN_PROGRESS:
+            return {
+              backgroundColor: '#ffd380',
+              color: 'black',
+              fontWeight: '',
+            };
+          case RequestStatus.COMPLETED:
+            return {
+              backgroundColor: '#80ff80',
+              color: 'black',
+              fontWeight: '',
+            };
+          case RequestStatus.CANCELLED:
+            return {
+              backgroundColor: '#d32f2f',
+              color: 'black',
+              fontWeight: '',
+            };
+          default:
+            return {
+              backgroundColor: 'grey',
+              color: 'black',
+              fontWeight: '',
+            };
+        }
+      },
+    },
+    {
       field: 'street',
       headerName: 'Straße',
       filter: 'agTextColumnFilter',
       sortable: true,
+      width: 150,
     },
     {
       field: 'houseNumber',
       headerName: 'Hausnummer',
       filter: 'agTextColumnFilter',
       sortable: true,
-      width: 100,
+      width: 80,
+      cellStyle: {
+        textAlign: 'center',
+        fontSize: '13px',
+      },
     },
     {
       field: 'city',
@@ -595,6 +610,10 @@ export class RequestComponent {
       field: 'desiredDate',
       headerName: 'Gewünschtes Datum',
       filter: 'agDateColumnFilter',
+      cellStyle: {
+        backgroundColor: '#e3f2fd',
+        fontWeight: 'bold',
+      },
     },
     {
       field: 'desiredTime',
@@ -602,19 +621,21 @@ export class RequestComponent {
       filter: 'agTextColumnFilter',
     },
     {
-      field: 'category',
-      headerName: 'Kategorie',
-      filter: 'agTextColumnFilter',
-    },
-    {
       field: 'serviceType',
       headerName: 'Dienstleistung',
       filter: 'agTextColumnFilter',
+      cellStyle: {
+        fontWeight: 'bold',
+        backgroundColor: '#f5f5f5',
+      },
     },
     {
       field: 'electricianName',
       headerName: 'Elektriker',
       filter: 'agTextColumnFilter',
+      cellStyle: {
+        fontWeight: 'bold',
+      },
     },
   ];
 }

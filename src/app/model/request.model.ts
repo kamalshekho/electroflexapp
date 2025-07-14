@@ -9,7 +9,6 @@ interface RequestBase {
   customerLastName: string;
   email: string;
   phone: string;
-  category: string;
   serviceType: string;
   description: string;
   internalNote?: string;
