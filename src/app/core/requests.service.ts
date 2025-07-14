@@ -1,10 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RequestsService {
+  private readonly baseUrl = 'http://localhost:8080/requests';
 
-constructor() { }
-
+  constructor(private http: HttpClient) {}
 }
