@@ -545,6 +545,16 @@ export class RequestComponent {
       field: 'id',
       headerName: 'ID',
       filter: 'agNumberColumnFilter',
+      width: 70,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      filter: 'agSetColumnFilter',
+      filterParams: {
+        values: Object.values(RequestStatus),
+      },
+      width: 130,
     },
     {
       field: 'customerFirstName',
@@ -567,16 +577,19 @@ export class RequestComponent {
       headerName: 'Hausnummer',
       filter: 'agTextColumnFilter',
       sortable: true,
-    },
-    {
-      field: 'postalCode',
-      headerName: 'PLZ',
-      filter: 'agNumberColumnFilter',
+      width: 100,
     },
     {
       field: 'city',
       headerName: 'Stadt',
       filter: 'agTextColumnFilter',
+    },
+
+    {
+      field: 'postalCode',
+      headerName: 'PLZ',
+      filter: 'agNumberColumnFilter',
+      width: 100,
     },
     {
       field: 'desiredDate',
@@ -597,14 +610,6 @@ export class RequestComponent {
       field: 'serviceType',
       headerName: 'Dienstleistung',
       filter: 'agTextColumnFilter',
-    },
-    {
-      field: 'status',
-      headerName: 'Status',
-      filter: 'agSetColumnFilter',
-      filterParams: {
-        values: Object.values(RequestStatus),
-      },
     },
     {
       field: 'electricianName',
