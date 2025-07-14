@@ -3,6 +3,8 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { MatButtonModule } from '@angular/material/button';
 import { Request, RequestStatus } from '../../model/request.model';
+import { MatDialog } from '@angular/material/dialog';
+import { RequestFormComponent } from './request-form/request-form.component';
 
 @Component({
   selector: 'app-requests',
@@ -638,4 +640,14 @@ export class RequestComponent {
       },
     },
   ];
+
+  constructor(private dialog: MatDialog) {}
+
+  openCreateRequestDialog(): void {
+    const dialogRef = this.dialog.open(RequestFormComponent, {
+      width: '1150px',
+      maxHeight: '125vh',
+      data: {},
+    });
+  }
 }
