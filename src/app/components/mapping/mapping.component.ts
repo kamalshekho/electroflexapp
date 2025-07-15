@@ -96,7 +96,7 @@ const mockHamburgRequests: Request[] = [
 })
 
 export class MappingComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  private BACKEND_URL = "http://localhost:8080"
+  private BACKEND_URL = "http://localhost:8080/requests"
   private map!: L.Map
   markers: L.Marker[] = [
     L.marker([53.551086, 9.993682], { icon: buildIcon }).bindPopup("<p>Jack Sparrow, Klingelanlage funktioniert nicht</p>")
