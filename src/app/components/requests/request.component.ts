@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { MatButtonModule } from '@angular/material/button';
-import { Request, RequestStatus } from '../../model/request.model';
+import { Request, RequestStatus } from '../../core/model/request.model';
 import { MatDialog } from '@angular/material/dialog';
 import { RequestFormComponent } from './request-form/request-form.component';
 

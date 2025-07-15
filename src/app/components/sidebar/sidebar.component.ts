@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, Route, RouterModule } from '@angular/router';
-import { MenuService } from '../../core/menu.service';
+import { MenuService } from '../../core/services/menu.service';
 import { MenuItem } from '../../interfaces/menuItem';
 
 @Component({

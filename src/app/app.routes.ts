@@ -6,8 +6,13 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ElectriciansComponent } from './components/electricians/electricians.component';
 import { RequestFormComponent } from './components/requests/request-form/request-form.component';
 import { MappingComponent } from './components/mapping/mapping.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
   {
     path: 'dashboard',
     component: DashboardComponent,
