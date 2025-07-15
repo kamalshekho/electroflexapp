@@ -3,6 +3,8 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { MatButtonModule } from '@angular/material/button';
 import { Request, RequestStatus } from '../../model/request.model';
+import { MatDialog } from '@angular/material/dialog';
+import { RequestFormComponent } from './request-form/request-form.component';
 
 @Component({
   selector: 'app-requests',
@@ -31,6 +33,7 @@ export class RequestComponent {
       createdAt: '2025-07-01T10:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: 'Hans Meier',
+      category: '',
     },
     {
       id: 2,
@@ -51,6 +54,7 @@ export class RequestComponent {
       createdAt: '2025-07-02T15:20:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Peter Müller',
+      category: '',
     },
     {
       id: 3,
@@ -71,6 +75,7 @@ export class RequestComponent {
       createdAt: '2025-07-03T08:45:00Z',
       status: RequestStatus.COMPLETED,
       electricianName: 'Michael Weber',
+      category: '',
     },
     {
       id: 4,
@@ -91,6 +96,7 @@ export class RequestComponent {
       createdAt: '2025-07-04T18:30:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 5,
@@ -111,6 +117,7 @@ export class RequestComponent {
       createdAt: '2025-07-05T12:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: 'Sven Richter',
+      category: '',
     },
     {
       id: 6,
@@ -131,6 +138,7 @@ export class RequestComponent {
       createdAt: '2025-07-06T09:30:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Michael Weber',
+      category: '',
     },
     {
       id: 7,
@@ -151,6 +159,7 @@ export class RequestComponent {
       createdAt: '2025-07-07T14:15:00Z',
       status: RequestStatus.COMPLETED,
       electricianName: 'Hans Meier',
+      category: '',
     },
     {
       id: 8,
@@ -171,6 +180,7 @@ export class RequestComponent {
       createdAt: '2025-07-08T11:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 9,
@@ -191,6 +201,7 @@ export class RequestComponent {
       createdAt: '2025-07-09T13:40:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Peter Müller',
+      category: '',
     },
     {
       id: 10,
@@ -211,6 +222,7 @@ export class RequestComponent {
       createdAt: '2025-07-10T16:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: 'Hans Meier',
+      category: '',
     },
     {
       id: 11,
@@ -231,6 +243,7 @@ export class RequestComponent {
       createdAt: '2025-07-11T10:30:00Z',
       status: RequestStatus.COMPLETED,
       electricianName: 'Sven Richter',
+      category: '',
     },
     {
       id: 12,
@@ -251,6 +264,7 @@ export class RequestComponent {
       createdAt: '2025-07-12T11:20:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 13,
@@ -271,6 +285,7 @@ export class RequestComponent {
       createdAt: '2025-07-13T14:00:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Hans Meier',
+      category: '',
     },
     {
       id: 14,
@@ -291,6 +306,7 @@ export class RequestComponent {
       createdAt: '2025-07-14T09:45:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 15,
@@ -311,6 +327,7 @@ export class RequestComponent {
       createdAt: '2025-07-15T10:15:00Z',
       status: RequestStatus.COMPLETED,
       electricianName: 'Michael Weber',
+      category: '',
     },
     {
       id: 16,
@@ -331,6 +348,7 @@ export class RequestComponent {
       createdAt: '2025-07-16T12:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 17,
@@ -351,6 +369,7 @@ export class RequestComponent {
       createdAt: '2025-07-17T11:30:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Sven Richter',
+      category: '',
     },
     {
       id: 18,
@@ -371,6 +390,7 @@ export class RequestComponent {
       createdAt: '2025-07-18T09:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 19,
@@ -391,6 +411,7 @@ export class RequestComponent {
       createdAt: '2025-07-19T15:00:00Z',
       status: RequestStatus.COMPLETED,
       electricianName: 'Hans Meier',
+      category: '',
     },
     {
       id: 20,
@@ -411,6 +432,7 @@ export class RequestComponent {
       createdAt: '2025-07-20T17:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 21,
@@ -431,6 +453,7 @@ export class RequestComponent {
       createdAt: '2025-07-21T08:45:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Michael Weber',
+      category: '',
     },
     {
       id: 22,
@@ -451,6 +474,7 @@ export class RequestComponent {
       createdAt: '2025-07-22T12:00:00Z',
       status: RequestStatus.COMPLETED,
       electricianName: 'Hans Meier',
+      category: '',
     },
     {
       id: 23,
@@ -471,6 +495,7 @@ export class RequestComponent {
       createdAt: '2025-07-23T10:30:00Z',
       status: RequestStatus.OPEN,
       electricianName: undefined,
+      category: '',
     },
     {
       id: 24,
@@ -491,6 +516,7 @@ export class RequestComponent {
       createdAt: '2025-07-24T15:00:00Z',
       status: RequestStatus.IN_PROGRESS,
       electricianName: 'Michael Weber',
+      category: '',
     },
     {
       id: 25,
@@ -511,6 +537,7 @@ export class RequestComponent {
       createdAt: '2025-07-25T10:00:00Z',
       status: RequestStatus.OPEN,
       electricianName: 'Hans Meier',
+      category: '',
     },
   ];
 
@@ -638,4 +665,14 @@ export class RequestComponent {
       },
     },
   ];
+
+  constructor(private dialog: MatDialog) {}
+
+  openCreateRequestDialog(): void {
+    const dialogRef = this.dialog.open(RequestFormComponent, {
+      width: '1100px',
+      maxHeight: '125vh',
+      data: {},
+    });
+  }
 }
