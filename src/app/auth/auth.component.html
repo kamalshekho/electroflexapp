@@ -9,24 +9,52 @@
         <h1>Create Account</h1>
         <span>or use your email for registration</span>
 
-        <input formControlName="firstName" placeholder="Vorname" />
-        <input formControlName="lastName" placeholder="Nachname" />
-        <input formControlName="email" type="email" placeholder="Email" />
-        <input formControlName="phone" placeholder="Phone" />
-        <input
-          formControlName="password"
-          type="password"
-          placeholder="Passwort"
-        />
-        <input
-          formControlName="confirmPassword"
-          type="password"
-          placeholder="Passwort wiederholen"
-        />
-        <input formControlName="street" placeholder="Straße" />
-        <input formControlName="houseNumber" placeholder="Hausnummer" />
-        <input formControlName="postalCode" placeholder="PLZ" />
-        <input formControlName="city" placeholder="Stadt" />
+        <div class="form-grid">
+          <div class="grid-50">
+            <input formControlName="firstName" placeholder="First Name" />
+          </div>
+          <div class="grid-50">
+            <input formControlName="lastName" placeholder="Last Name" />
+          </div>
+
+          <div class="grid-100">
+            <input formControlName="email" type="email" placeholder="Email" />
+          </div>
+
+          <div class="grid-100">
+            <input formControlName="phone" placeholder="Phone" />
+          </div>
+
+          <div class="grid-100">
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="grid-100">
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              placeholder="Repeat Password"
+            />
+          </div>
+
+          <div class="grid-75">
+            <input formControlName="street" placeholder="Street" />
+          </div>
+          <div class="grid-25">
+            <input formControlName="houseNumber" placeholder="House Number" />
+          </div>
+
+          <div class="grid-30">
+            <input formControlName="postalCode" placeholder="Postal Code" />
+          </div>
+          <div class="grid-70">
+            <input formControlName="city" placeholder="City" />
+          </div>
+        </div>
 
         <button type="submit">Sign Up</button>
       </form>
