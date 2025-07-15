@@ -23,11 +23,11 @@ export const routes: Routes = [
     component: MappingComponent,
     data: { label: 'Map', icon: 'fal fa-regular fa-map' },
   },
-  // {
-  //   path: 'requests/create',
-  //   component: RequestFormComponent,
-  //   data: { label: 'New Request', icon: 'fal fa-solid fa-plus' },
-  // },
+  {
+    path: 'requests/create',
+    component: RequestFormComponent,
+    data: { label: 'New Request', icon: 'fal fa-solid fa-plus' },
+  },
   {
     path: 'electricians',
     component: ElectriciansComponent,

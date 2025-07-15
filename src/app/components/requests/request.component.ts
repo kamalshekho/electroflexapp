@@ -556,11 +556,13 @@ export class RequestComponent {
       field: 'customerFirstName',
       headerName: 'Vorname',
       filter: 'agTextColumnFilter',
+      floatingFilter: true,
     },
     {
       field: 'customerLastName',
       headerName: 'Nachname',
       filter: 'agTextColumnFilter',
+      floatingFilter: true,
     },
     {
       field: 'status',
@@ -632,6 +634,7 @@ export class RequestComponent {
       headerName: 'PLZ',
       filter: 'agNumberColumnFilter',
       width: 100,
+      floatingFilter: true,
     },
     {
       field: 'desiredDate',
@@ -641,6 +644,7 @@ export class RequestComponent {
         backgroundColor: '#e3f2fd',
         fontWeight: 'bold',
       },
+      floatingFilter: true,
     },
     {
       field: 'desiredTime',
