@@ -4,15 +4,13 @@
   box-sizing: border-box;
 }
 
-body {
-  background: #f6f5f7;
+.auth-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  font-family: "Montserrat", sans-serif;
   height: 100vh;
-  margin: 0; /* entfernt den negativen Margin-Bug */
+  width: 100vw;
+  background: #f6f5f7;
 }
 
 h1 {
@@ -99,9 +97,9 @@ input {
     0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
-  width: 900px; /* vorher 768px */
-  max-width: 95%; /* immer noch responsive */
-  min-height: 650px; /* vorher 600px */
+  width: 1000px;
+  max-width: 95%;
+  min-height: 650px;
 }
 
 /* Form container */
