@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SettingsComponent } from './components/settings/settings.component';
 import { ElectriciansComponent } from './components/electricians/electricians.component';
 import { RequestFormComponent } from './components/requests/request-form/request-form.component';
+import { MappingComponent } from './components/mapping/mapping.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,11 @@ export const routes: Routes = [
     path: 'requests',
     component: RequestComponent,
     data: { label: 'Requests', icon: 'fal fa-clipboard' },
+  },
+  {
+    path: 'map',
+    component: MappingComponent,
+    data: { label: 'Map', icon: 'fal fa-regular fa-map' },
   },
   // {
   //   path: 'requests/create',
