@@ -7,15 +7,23 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
+  selector: 'app-auth',
   imports: [ReactiveFormsModule],
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css'],
 })
-export class RegisterComponent {
+export class AuthComponent {
+  isSignUpActive = false;
+
+  loginForm: FormGroup;
   registerForm: FormGroup;
+
   constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -30,9 +38,23 @@ export class RegisterComponent {
     });
   }
 
-  onSubmit() {
+  showSignUp() {
+    this.isSignUpActive = true;
+  }
+
+  showSignIn() {
+    this.isSignUpActive = false;
+  }
+
+  onLoginSubmit() {
+    if (this.loginForm.valid) {
+      console.log('Login Daten:', this.loginForm.value);
+    }
+  }
+
+  onRegisterSubmit() {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      console.log('Register Daten:', this.registerForm.value);
     }
   }
 }

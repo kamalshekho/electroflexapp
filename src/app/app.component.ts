@@ -19,11 +19,10 @@ export class AppComponent implements OnInit {
   showSidebarAndHeader = signal(true);
 
   constructor(private router: Router) {
-    // Überwache Route, um Sidebar/Header auszublenden bei Login/Register
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        const noSidebarRoutes = ['/login', '/register'];
+        const noSidebarRoutes = ['/auth'];
         this.showSidebarAndHeader.set(
           !noSidebarRoutes.includes(event.urlAfterRedirects),
         );
