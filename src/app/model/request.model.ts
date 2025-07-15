@@ -1,4 +1,5 @@
 interface RequestBase {
+  category: string;
   street: string;
   houseNumber: string;
   postalCode: number;

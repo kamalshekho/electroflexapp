@@ -1,7 +1,6 @@
 <form [formGroup]="requestForm" class="request-form" (ngSubmit)="onSubmit()">
   <h2 class="dialog-title">New Request</h2>
 
-  <!-- SECTION: Service Details -->
   <h3>Service Details</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
@@ -20,7 +19,6 @@
     </mat-form-field>
   </div>
 
-  <!-- SECTION: Address -->
   <h3>Address</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
@@ -44,7 +42,6 @@
     </mat-form-field>
   </div>
 
-  <!-- SECTION: Desired Appointment -->
   <h3>Desired Appointment</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
@@ -60,7 +57,6 @@
     </mat-form-field>
   </div>
 
-  <!-- SECTION: Person Details -->
   <h3>Person Details</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
@@ -74,7 +70,6 @@
     </mat-form-field>
   </div>
 
-  <!-- SECTION: Contact Information -->
   <h3>Contact Information</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
@@ -88,14 +83,6 @@
     </mat-form-field>
   </div>
 
-  <!-- SECTION: Internal Note -->
-  <h3>Internal Note</h3>
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Internal Note</mat-label>
-    <textarea matInput formControlName="internalNote" rows="2"></textarea>
-  </mat-form-field>
-
-  <!-- ACTION BUTTONS -->
   <div class="form-actions">
     <button mat-stroked-button type="button" (click)="onCancel()">
       Cancel
