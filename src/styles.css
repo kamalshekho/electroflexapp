@@ -2,6 +2,8 @@
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import "ag-grid-community/styles/ag-theme-material.css";
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
 
 html,
 body {
