@@ -35,6 +35,15 @@
                 <span class="sidenav-link-text">{{ item.label }}</span>
               }
             </a>
+
+            <ng-template #logoutTemplate>
+              <button class="sidenav-nav-link" (click)="logout()">
+                <i class="sidenav-link-icon" [class]="item.icon"></i>
+                @if (!isLeftSidebarCollapsed) {
+                  <span class="sidenav-link-text">{{ item.label }}</span>
+                }
+              </button>
+            </ng-template>
           </li>
         }
       </div>
