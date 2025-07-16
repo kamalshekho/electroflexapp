@@ -34,13 +34,9 @@ export class AuthService {
       );
   }
 
-  // getCurrentUser(): User | null {
-  //   const user = localStorage.getItem('user');
-  //   return user ? JSON.parse(user) : null;
-  // }
-
-  getCurrentUser() {
-    return { role: 'client' };
+  getCurrentUser(): User | null {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
   }
 
   logout() {

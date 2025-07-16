@@ -33,6 +33,7 @@ export class AuthComponent {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],

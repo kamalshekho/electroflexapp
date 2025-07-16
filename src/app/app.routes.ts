@@ -41,6 +41,6 @@ export const routes: Routes = [
     component: SettingsComponent,
     data: { label: 'Settings', icon: 'fal fa-cog' },
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
