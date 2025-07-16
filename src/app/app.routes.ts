@@ -19,7 +19,7 @@ export const routes: Routes = [
   {
     path: 'requests',
     component: RequestComponent,
-    data: { label: 'Requests', icon: 'fa-solid fa-clipboard' },
+    data: { label: 'Requests', icon: 'fa-regular fa-clipboard' },
   },
   {
     path: 'map',
@@ -29,7 +29,7 @@ export const routes: Routes = [
   {
     path: 'requests/create',
     component: RequestFormComponent,
-    data: { label: 'New Request', icon: 'fa-solid fa-solid fa-plus' },
+    data: { label: 'New Request', icon: 'fa-solid fa-plus' },
   },
   {
     path: 'electricians',
