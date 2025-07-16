@@ -14,32 +14,32 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    data: { label: 'Dashboard', icon: 'fal fa-home' },
+    data: { label: 'Dashboard', icon: 'fa-solid fa-home' },
   },
   {
     path: 'requests',
     component: RequestComponent,
-    data: { label: 'Requests', icon: 'fal fa-clipboard' },
+    data: { label: 'Requests', icon: 'fa-regular fa-clipboard' },
   },
   {
     path: 'map',
     component: MappingComponent,
-    data: { label: 'Map', icon: 'fal fa-regular fa-map' },
+    data: { label: 'Map', icon: 'fa-regular fa-map' },
   },
   {
     path: 'requests/create',
     component: RequestFormComponent,
-    data: { label: 'New Request', icon: 'fal fa-solid fa-plus' },
+    data: { label: 'New Request', icon: 'fa-solid fa-plus' },
   },
   {
     path: 'electricians',
     component: ElectriciansComponent,
-    data: { label: 'Electricians', icon: 'fal fa-clipboard-user' },
+    data: { label: 'Electricians', icon: 'fa-solid fa-clipboard-user' },
   },
   {
     path: 'settings',
     component: SettingsComponent,
-    data: { label: 'Settings', icon: 'fal fa-cog' },
+    data: { label: 'Settings', icon: 'fa-solid fa-cog' },
   },
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

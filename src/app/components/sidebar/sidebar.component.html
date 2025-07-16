@@ -4,12 +4,12 @@
 >
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()">
-      <i class="fal fa-bars"></i>
+      <i class="fa-solid fa-bars"></i>
     </button>
     @if (!isLeftSidebarCollapsed) {
       <div class="logo-text">ElectroFlex</div>
       <button class="btn-close">
-        <i class="fal fa-times close-icon" (click)="closeSidenav()"></i>
+        <i class="fa-solid fa-times close-icon" (click)="closeSidenav()"></i>
       </button>
     }
   </div>
@@ -35,6 +35,15 @@
                 <span class="sidenav-link-text">{{ item.label }}</span>
               }
             </a>
+
+            <ng-template #logoutTemplate>
+              <button class="sidenav-nav-link" (click)="logout()">
+                <i class="sidenav-link-icon" [class]="item.icon"></i>
+                @if (!isLeftSidebarCollapsed) {
+                  <span class="sidenav-link-text">{{ item.label }}</span>
+                }
+              </button>
+            </ng-template>
           </li>
         }
       </div>

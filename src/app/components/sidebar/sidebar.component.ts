@@ -52,6 +52,17 @@ export class SidebarComponent {
       this.mainMenuItems = [];
       this.secondaryMenuItems = [];
     }
+
+    this.secondaryMenuItems.push({
+      routerLink: '',
+      label: 'Logout',
+      icon: 'fa-solid fa-arrow-right-from-bracket',
+    });
+  }
+
+  public logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/auth']);
   }
 
   public toggleCollapse(): void {
