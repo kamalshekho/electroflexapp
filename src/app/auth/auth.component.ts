@@ -5,6 +5,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -18,7 +20,11 @@ export class AuthComponent {
   loginForm: FormGroup;
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -48,13 +54,28 @@ export class AuthComponent {
 
   onLoginSubmit() {
     if (this.loginForm.valid) {
-      console.log('Login Daten:', this.loginForm.value);
+      this.authService.login(this.loginForm.value).subscribe({
+        next: () => this.redirectUser(),
+        error: (err) => console.error('Login Fehler', err),
+      });
     }
   }
 
   onRegisterSubmit() {
     if (this.registerForm.valid) {
-      console.log('Register Daten:', this.registerForm.value);
+      this.authService.register(this.registerForm.value).subscribe({
+        next: () => this.redirectUser(),
+        error: (err) => console.error('Registrierung Fehler', err),
+      });
     }
+  }
+
+  redirectUser() {
+    const user = this.authService.getCurrentUser();
+    if (!user) return;
+
+    if (user.role === 'admin') this.router.navigate(['/dashboard']);
+    else if (user.role === 'client') this.router.navigate(['/requests/create']);
+    else this.router.navigate(['/dashboard']);
   }
 }
