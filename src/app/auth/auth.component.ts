@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
+import { RegisterRequest } from '../core/model/auth.models';
 
 @Component({
   selector: 'app-auth',
@@ -33,15 +34,15 @@ export class AuthComponent {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      userName: ['', Validators.required],
+      userName: ['', Validators.required],  // This will be mapped to username
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       street: ['', Validators.required],
       houseNumber: ['', Validators.required],
-      postalCode: ['', Validators.required],
-      city: ['', Validators.required],
+      postalCode: ['', Validators.required], // This will be mapped to postCode
+      city: ['', Validators.required]
     });
   }
 
@@ -64,12 +65,54 @@ export class AuthComponent {
 
   onRegisterSubmit() {
     if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe({
-        next: () => this.redirectUser(),
-        error: (err) => console.error('Registrierung Fehler', err),
+      const formData = this.registerForm.value;
+
+      const registerRequest: RegisterRequest = {
+        username: formData.userName,
+        password: formData.password,
+        email: formData.email,
+        phone: formData.phone,
+        role: 'client',
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        houseNumber: formData.houseNumber,
+        street: formData.street,
+        postCode: formData.postalCode,
+        city: formData.city
+      };
+
+      this.authService.register(registerRequest).subscribe({
+        next: (response) => {
+          console.log('Registration successful:', response);
+          // Show success message to user
+          alert('Registration successful! Please login.');
+          // Switch to login form
+          this.showSignIn();
+          // Pre-fill the login form
+          this.loginForm.patchValue({
+            email: registerRequest.email,
+            password: registerRequest.password
+          });
+        },
+        error: (error) => {
+          console.error('Registration failed:', error);
+          // Show error message to user
+          alert('Registration failed. Please try again.');
+        }
       });
     }
-    console.log(this.registerForm.value)
+  }
+
+  private loginAfterRegistration(email: string, password: string) {
+    this.authService.login({ email, password }).subscribe({
+      next: (response) => {
+        console.log('Auto-login successful:', response);
+        // Handle successful login (redirect, etc.)
+      },
+      error: (error) => {
+        console.error('Auto-login failed:', error);
+      }
+    });
   }
 
   redirectUser() {

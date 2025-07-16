@@ -10,13 +10,15 @@ export interface LoginResponse {
 }
 
 export interface RegisterRequest {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  password: string;
-  street: string;
-  houseNumber: string;
-  postalCode: string;
-  city: string;
+  username: string;    // matches backend
+  password: string;    // matches backend
+  email: string;       // matches backend
+  phone: string;       // matches backend
+  role: string;        // matches backend
+  firstName: string;   // matches backend
+  lastName: string;    // matches backend
+  houseNumber: string; // matches backend
+  street: string;      // matches backend
+  postCode: string;    // matches backend
+  city: string;        // matches backend
 }

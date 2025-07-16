@@ -25,12 +25,20 @@ export class AuthService {
   }
 
   register(data: RegisterRequest) {
+    console.log('Starting registration process:', data);
     return this.http
       .post<User>(`${this.apiUrl}/register`, data)
       .pipe(
-        switchMap(() =>
-          this.login({ email: data.email, password: data.password }),
-        ),
+        tap({
+          next: (response) => {
+            console.log('Registration successful:', response);
+            // Don't automatically try to login
+          },
+          error: (error) => {
+            console.error('Registration error:', error);
+            throw error; // Re-throw to be caught by the component
+          }
+        })
       );
   }
 
