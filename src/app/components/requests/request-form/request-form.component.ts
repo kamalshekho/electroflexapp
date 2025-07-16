@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Optional } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
@@ -34,9 +34,9 @@ export class RequestFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<RequestFormComponent>,
+    @Optional() public dialogRef: MatDialogRef<RequestFormComponent>,
     private requestsService: RequestsService,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.requestForm = this.fb.group({
       category: ['', Validators.required],
