@@ -69,6 +69,7 @@ export class AuthComponent {
         error: (err) => console.error('Registrierung Fehler', err),
       });
     }
+    console.log(this.registerForm.value)
   }
 
   redirectUser() {
