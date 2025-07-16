@@ -63,13 +63,10 @@ export class AuthComponent {
 
   onRegisterSubmit() {
     if (this.registerForm.valid) {
-      console.log('Form Valid', this.registerForm.value); // HIER
       this.authService.register(this.registerForm.value).subscribe({
         next: () => this.redirectUser(),
         error: (err) => console.error('Registrierung Fehler', err),
       });
-    } else {
-      console.log('Form invalid', this.registerForm.errors);
     }
   }
 

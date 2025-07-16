@@ -12,7 +12,6 @@ interface RequestBase {
   phone: string;
   serviceType: string;
   description: string;
-  internalNote?: string;
 }
 
 export interface CreateRequest extends RequestBase {}
