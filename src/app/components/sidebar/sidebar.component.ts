@@ -1,7 +1,7 @@
-import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router, Route, RouterModule } from '@angular/router';
-import { MenuService } from '../../core/menu.service';
+import { Router, RouterModule } from '@angular/router';
+import { NgClass } from '@angular/common';
+import { AuthService } from '../../core/services/auth.service';
 import { MenuItem } from '../../interfaces/menuItem';
 
 @Component({
@@ -24,22 +24,34 @@ export class SidebarComponent {
     ];
   }
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {
+    const user = this.authService.getCurrentUser();
+    const role = user?.role;
+
     const items = this.router.config
       .filter((route) => route.data?.['label'])
       .map((route) => ({
-        routerLink: route.path || '',
+        routerLink: '/' + route.path,
         label: route.data!['label'],
         icon: route.data!['icon'],
       }));
 
-    this.mainMenuItems = items.filter(
-      (item) => !['Settings', 'Logout'].includes(item.label),
-    );
-
-    this.secondaryMenuItems = items.filter((item) =>
-      ['Settings', 'Logout'].includes(item.label),
-    );
+    if (role === 'admin') {
+      this.mainMenuItems = items.filter((item) =>
+        ['Dashboard', 'Requests', 'Map', 'Electricians'].includes(item.label),
+      );
+      this.secondaryMenuItems = items.filter(
+        (item) => item.label === 'Settings',
+      );
+    } else if (role === 'client') {
+      this.mainMenuItems = items.filter((item) => item.label === 'New Request');
+    } else {
+      this.mainMenuItems = [];
+      this.secondaryMenuItems = [];
+    }
   }
 
   public toggleCollapse(): void {

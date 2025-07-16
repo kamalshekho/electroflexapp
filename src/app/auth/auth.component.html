@@ -1,0 +1,103 @@
+<div class="auth-wrapper">
+  <div
+    class="container"
+    [class.right-panel-active]="isSignUpActive"
+    id="container"
+  >
+    <div class="form-container sign-up-container">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+        <h1>Create Account</h1>
+        <span>or use your email for registration</span>
+
+        <div class="form-grid">
+          <div class="grid-50">
+            <input formControlName="firstName" placeholder="First Name" />
+          </div>
+          <div class="grid-50">
+            <input formControlName="lastName" placeholder="Last Name" />
+          </div>
+
+          <div class="grid-100">
+            <input
+              formControlName="userName"
+              type="userName"
+              placeholder="User Name"
+            />
+          </div>
+
+          <div class="grid-100">
+            <input formControlName="email" type="email" placeholder="Email" />
+          </div>
+
+          <div class="grid-100">
+            <input formControlName="phone" placeholder="Phone" />
+          </div>
+
+          <div class="grid-100">
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="grid-100">
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              placeholder="Repeat Password"
+            />
+          </div>
+
+          <div class="grid-75">
+            <input formControlName="street" placeholder="Street" />
+          </div>
+          <div class="grid-25">
+            <input formControlName="houseNumber" placeholder="Nr." />
+          </div>
+
+          <div class="grid-30">
+            <input formControlName="postalCode" placeholder="Postal Code" />
+          </div>
+          <div class="grid-70">
+            <input formControlName="city" placeholder="City" />
+          </div>
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+        <h1>Sign in</h1>
+        <span>or use your account</span>
+
+        <input formControlName="email" type="email" placeholder="Email" />
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Passwort"
+        />
+
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" (click)="showSignIn()">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" (click)="showSignUp()">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

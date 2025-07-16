@@ -1,8 +1,11 @@
 <app-sidebar
+  *ngIf="showSidebarAndHeader()"
   [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
   (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
 ></app-sidebar>
 <app-main
+  *ngIf="showSidebarAndHeader()"
   [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
   [screenWidth]="screenWidth()"
 ></app-main>
+<router-outlet *ngIf="!showSidebarAndHeader()"></router-outlet>

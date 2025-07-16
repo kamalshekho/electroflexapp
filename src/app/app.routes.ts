@@ -6,8 +6,11 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ElectriciansComponent } from './components/electricians/electricians.component';
 import { RequestFormComponent } from './components/requests/request-form/request-form.component';
 import { MappingComponent } from './components/mapping/mapping.component';
+import { AuthComponent } from './auth/auth.component';
 
 export const routes: Routes = [
+  { path: 'auth', component: AuthComponent },
+
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -38,6 +41,6 @@ export const routes: Routes = [
     component: SettingsComponent,
     data: { label: 'Settings', icon: 'fal fa-cog' },
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
