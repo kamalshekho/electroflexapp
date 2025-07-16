@@ -56,7 +56,7 @@ export class SidebarComponent {
     this.secondaryMenuItems.push({
       routerLink: '',
       label: 'Logout',
-      icon: 'fa fa-sign-out-alt',
+      icon: 'fa-solid fa-arrow-right-from-bracket',
     });
   }
 
