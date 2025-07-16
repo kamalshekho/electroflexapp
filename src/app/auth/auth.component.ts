@@ -33,11 +33,10 @@ export class AuthComponent {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
       street: ['', Validators.required],
       houseNumber: ['', Validators.required],
       postalCode: ['', Validators.required],
@@ -64,12 +63,14 @@ export class AuthComponent {
 
   onRegisterSubmit() {
     if (this.registerForm.valid) {
+      console.log('Form Valid', this.registerForm.value); // HIER
       this.authService.register(this.registerForm.value).subscribe({
         next: () => this.redirectUser(),
         error: (err) => console.error('Registrierung Fehler', err),
       });
+    } else {
+      console.log('Form invalid', this.registerForm.errors);
     }
-    console.log(this.registerForm.value)
   }
 
   redirectUser() {
