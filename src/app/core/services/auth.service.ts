@@ -36,9 +36,14 @@ export class AuthService {
 
   getCurrentUser(): User | null {
     // MOCK FOR DEV TESTING
-    // return { username: 'admin', email: 'admin@amdin.com', role: 'admin' };
+    // return {
+    //   username: 'admin',
+    //   email: 'admin@amdin.com',
+    //   role: 'admin',
+    //   customerId: 1,
+    // };
 
-    // Original fallback:
+    // // Original fallback:
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   }

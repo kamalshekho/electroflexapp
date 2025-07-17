@@ -1,8 +1,21 @@
-interface RequestBase {
-  category: string;
+export interface CreateRequest {
+  desiredDate?: string;
+  desiredTime?: string;
+  serviceType: string;
+  description: string;
+  version: number;
+  customerId: number;
+}
+
+export interface Request {
+  id: number;
+  createdDate: string;
+  createdAt: string;
+  status: RequestStatus;
+  electricianId?: number;
   street: string;
   houseNumber: string;
-  postalCode: number;
+  postCode: number;
   city: string;
   desiredDate?: string;
   desiredTime?: string;
@@ -12,16 +25,6 @@ interface RequestBase {
   phone: string;
   serviceType: string;
   description: string;
-}
-
-export interface CreateRequest extends RequestBase {}
-
-export interface Request extends RequestBase {
-  id: number;
-  createdDate: string;
-  createdAt: string;
-  status: RequestStatus;
-  electricianName?: string;
 }
 
 export enum RequestStatus {

@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RequestsService } from '../../../core/services/requests.service';
+import { version } from 'leaflet';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-request-form',
@@ -36,26 +38,18 @@ export class RequestFormComponent {
     private fb: FormBuilder,
     @Optional() public dialogRef: MatDialogRef<RequestFormComponent>,
     private requestsService: RequestsService,
+    private authService: AuthService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.requestForm = this.fb.group({
-      category: ['', Validators.required],
       serviceType: ['', Validators.required],
       description: [''],
-
-      street: ['', Validators.required],
-      houseNumber: ['', Validators.required],
-      postalCode: [null, [Validators.required, Validators.min(10000)]],
-      city: ['', Validators.required],
+      version: [1],
 
       desiredDate: [''],
       desiredTime: [''],
 
-      customerFirstName: ['', Validators.required],
-      customerLastName: ['', Validators.required],
-
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      customerId: [authService.getCurrentUser()?.customerId],
     });
   }
 
