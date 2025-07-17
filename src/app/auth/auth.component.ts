@@ -39,7 +39,7 @@ export class AuthComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
       street: ['', Validators.required],
       houseNumber: ['', Validators.required],
-      postalCode: ['', Validators.required],
+      postCode: ['', Validators.required],
       city: ['', Validators.required],
     });
   }

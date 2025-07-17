@@ -1,11 +1,11 @@
 import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 import * as L from 'leaflet';
 interface Request {
-  streetName: string,
-  customerName: string,
-  issueDescription: string,
-  number: string,
-  postal_code: string
+  street: string,
+  customerFirstName: string,
+  description: string,
+  houseNumber: string,
+  postCode: string
 }
 let buildIcon = L.icon({
   iconUrl: 'images/build-icon-half.png',
@@ -17,74 +17,74 @@ let buildIcon = L.icon({
 });
 const mockHamburgRequests: Request[] = [
   {
-    streetName: 'Cuxhavener Strasse',
-    number: '335',
-    postal_code: '21149',
-    customerName: 'Sabine Krause',
-    issueDescription: 'Sicherung im Sicherungskasten löst regelmäßig aus'
+    street: 'Cuxhavener Strasse',
+    houseNumber: '335',
+    postCode: '21149',
+    customerFirstName: 'Sabine Krause',
+    description: 'Sicherung im Sicherungskasten löst regelmäßig aus'
   },
   {
-    streetName: 'Reeperbahn',
-    number: '23',
-    postal_code: '20359',
-    customerName: 'Tobias Möller',
-    issueDescription: 'Bewegungsmelder an der Haustür funktioniert nicht'
+    street: 'Reeperbahn',
+    houseNumber: '23',
+    postCode: '20359',
+    customerFirstName: 'Tobias Möller',
+    description: 'Bewegungsmelder an der Haustür funktioniert nicht'
   },
   {
-    streetName: 'Jungfernstieg',
-    number: '16',
-    postal_code: '20354',
-    customerName: 'Lena Schneider',
-    issueDescription: 'LED-Spots in der Decke flackern'
+    street: 'Jungfernstieg',
+    houseNumber: '16',
+    postCode: '20354',
+    customerFirstName: 'Lena Schneider',
+    description: 'LED-Spots in der Decke flackern'
   },
   {
-    streetName: 'Wandsbeker Chaussee',
-    number: '187',
-    postal_code: '22089',
-    customerName: 'Khalid Yilmaz',
-    issueDescription: 'Internetrouter erhält keinen Strom'
+    street: 'Wandsbeker Chaussee',
+    houseNumber: '187',
+    postCode: '22089',
+    customerFirstName: 'Khalid Yilmaz',
+    description: 'Internetrouter erhält keinen Strom'
   },
   {
-    streetName: 'Schulterblatt',
-    number: '73',
-    postal_code: '20357',
-    customerName: 'Annika Weber',
-    issueDescription: 'Steckdose in der Küche ist ohne Funktion'
+    street: 'Schulterblatt',
+    houseNumber: '73',
+    postCode: '20357',
+    customerFirstName: 'Annika Weber',
+    description: 'Steckdose in der Küche ist ohne Funktion'
   },
   {
-    streetName: 'Mönckebergstraße',
-    number: '7',
-    postal_code: '20095',
-    customerName: 'Jan Petersen',
-    issueDescription: 'Türsprechanlage defekt'
+    street: 'Mönckebergstraße',
+    houseNumber: '7',
+    postCode: '20095',
+    customerFirstName: 'Jan Petersen',
+    description: 'Türsprechanlage defekt'
   },
   {
-    streetName: 'Alsterdorfer Straße',
-    number: '300',
-    postal_code: '22297',
-    customerName: 'Miriam Lange',
-    issueDescription: 'Sicherungen wurden nach Umbau nicht richtig beschriftet'
+    street: 'Alsterdorfer Straße',
+    houseNumber: '300',
+    postCode: '22297',
+    customerFirstName: 'Miriam Lange',
+    description: 'Sicherungen wurden nach Umbau nicht richtig beschriftet'
   },
   {
-    streetName: 'Osterstraße',
-    number: '112',
-    postal_code: '20259',
-    customerName: 'Paul Berger',
-    issueDescription: 'Beleuchtung im Badezimmer fällt aus'
+    street: 'Osterstraße',
+    houseNumber: '112',
+    postCode: '20259',
+    customerFirstName: 'Paul Berger',
+    description: 'Beleuchtung im Badezimmer fällt aus'
   },
   {
-    streetName: 'Steinstraße',
-    number: '12',
-    postal_code: '20095',
-    customerName: 'Emre Demir',
-    issueDescription: 'Kurzschluss in der Außenbeleuchtung'
+    street: 'Steinstraße',
+    houseNumber: '12',
+    postCode: '20095',
+    customerFirstName: 'Emre Demir',
+    description: 'Kurzschluss in der Außenbeleuchtung'
   },
   {
-    streetName: 'Billstedter Hauptstraße',
-    number: '45',
-    postal_code: '22111',
-    customerName: 'Claudia Schröder',
-    issueDescription: 'Klingelanlage ohne Funktion'
+    street: 'Billstedter Hauptstraße',
+    houseNumber: '45',
+    postCode: '22111',
+    customerFirstName: 'Claudia Schröder',
+    description: 'Klingelanlage ohne Funktion'
   }
 ];
 
@@ -96,7 +96,7 @@ const mockHamburgRequests: Request[] = [
 })
 
 export class MappingComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  private BACKEND_URL = "http://localhost:8080/requests"
+  private BACKEND_URL = "http://localhost:8080/requests/getAllRequests"
   private map!: L.Map
   markers: L.Marker[] = [
     L.marker([53.551086, 9.993682], { icon: buildIcon }).bindPopup("<p>Jack Sparrow, Klingelanlage funktioniert nicht</p>")
@@ -131,9 +131,9 @@ export class MappingComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
   private async addMarkers() {
-    // const fetchRequests = await fetchRequestsFromBackend()
+    const fetchedRequests: Request[] = await this.fetchRequestsFromBackend()
     //TODO: Change mockHamburgRequests to fetchRequests
-    const markerPromises = mockHamburgRequests.map(request => this.translateStreetToCoordinates(request));
+    const markerPromises = fetchedRequests.map(request => this.translateStreetToCoordinates(request));
     const markers = await Promise.all(markerPromises);
 
     const loadingContainer = document.getElementById("loadingContainer")
@@ -154,12 +154,12 @@ export class MappingComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   private async translateStreetToCoordinates(request: Request): Promise<L.Marker | null> {
     try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?city=hamburg&street=${request.streetName}&postalcode=${request.postal_code}&country=germany&format=geojson`);
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?city=hamburg&street=${request.street}&postalcode=${request.postCode}&country=germany&format=geojson`);
       const data = await res.json();
 
       if (data && data.features[0]?.geometry.coordinates) {
         const coords = data.features[0].geometry.coordinates.reverse();
-        return L.marker(coords, { icon: buildIcon }).bindPopup(`<p>${request.customerName}, ${request.issueDescription}</p>`);
+        return L.marker(coords, { icon: buildIcon }).bindPopup(`<p>${request.customerFirstName}, ${request.description}</p>`);
 
       } else {
         console.log("Could not find a street with that name");

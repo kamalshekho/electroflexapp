@@ -18,6 +18,6 @@ export interface RegisterRequest {
   password: string;
   street: string;
   houseNumber: string;
-  postalCode: string;
+  postCode: string;
   city: string;
 }
