@@ -10,8 +10,7 @@ export interface CreateRequest {
 export interface Request {
   id: number;
   createdDate: string;
-  createdAt: string;
-  status: RequestStatus;
+  createdTime: string;
   electricianId?: number;
   street: string;
   houseNumber: string;
