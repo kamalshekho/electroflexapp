@@ -496,8 +496,6 @@ export class RequestComponent implements OnInit {
   ];
   */
 
-  */
-
   colDefs: ColDef[] = [
     {
       field: 'id',
