@@ -28,13 +28,13 @@ export class ElectriciansComponent implements OnInit {
       },
     },
     {
-      field: 'electricianFirstName',
+      field: 'firstName',
       headerName: 'First Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
     },
     {
-      field: 'electricianLastName',
+      field: 'lastName',
       headerName: 'Last Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
@@ -86,7 +86,13 @@ export class ElectriciansComponent implements OnInit {
 
     this.electriciansService.toggleAvailability(electrician.id).subscribe({
       next: () => {
-        this.loadElectricians;
+        console.log(`Availability toggled for ID ${electrician.id}`);
+
+        this.loadElectricians();
+      },
+      error: (err) => {
+        console.error('Error toggling availability', err);
+        params.node.setDataValue('isAvailable', params.oldValue);
       },
     });
   }
