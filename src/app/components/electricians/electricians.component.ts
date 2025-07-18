@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ElectriciansService } from '../../core/services/electricians.service';
 import { Electrician } from '../../core/model/electricians.model';
 import { ElectricianFormComponent } from './electrician-form/electrician-form.component';
-import { ColDef } from 'ag-grid-community';
+import { ColDef, NewValueParams } from 'ag-grid-community';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -42,8 +42,12 @@ export class ElectriciansComponent implements OnInit {
     {
       field: 'isAvailable',
       headerName: 'Is Available',
+      cellDataType: 'boolean',
+      editable: true,
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      width: 130,
+      onCellValueChanged: (params) => this.onAvailabilityChanged(params),
     },
     {
       field: 'email',
@@ -73,6 +77,17 @@ export class ElectriciansComponent implements OnInit {
       width: '1100px',
       maxHeight: '125vh',
       data: {},
+    });
+  }
+
+  public onAvailabilityChanged(params: any): void {
+    const electrician: Electrician = params.data;
+    const newAvailability = params.newValue;
+
+    this.electriciansService.toggleAvailability(electrician.id).subscribe({
+      next: () => {
+        this.loadElectricians;
+      },
     });
   }
 
