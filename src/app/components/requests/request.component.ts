@@ -494,6 +494,7 @@ export class RequestComponent implements OnInit {
       electricianId: 1,
     },
   ];
+  */
 
   */
 
@@ -510,13 +511,13 @@ export class RequestComponent implements OnInit {
     },
     {
       field: 'customerFirstName',
-      headerName: 'Vorname',
+      headerName: 'First Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
     },
     {
       field: 'customerLastName',
-      headerName: 'Nachname',
+      headerName: 'Last Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
     },
@@ -562,15 +563,21 @@ export class RequestComponent implements OnInit {
       },
     },
     {
+      field: 'createdDate',
+      headerName: 'Created Date',
+      filter: 'agDateColumnFilter',
+      sortable: true,
+    },
+    {
       field: 'street',
-      headerName: 'Straße',
+      headerName: 'Street',
       filter: 'agTextColumnFilter',
       sortable: true,
       width: 150,
     },
     {
       field: 'houseNumber',
-      headerName: 'Hausnummer',
+      headerName: 'Haus Number',
       filter: 'agTextColumnFilter',
       sortable: true,
       width: 80,
@@ -581,20 +588,20 @@ export class RequestComponent implements OnInit {
     },
     {
       field: 'city',
-      headerName: 'Stadt',
+      headerName: 'City',
       filter: 'agTextColumnFilter',
     },
 
     {
       field: 'postCode',
-      headerName: 'PLZ',
+      headerName: 'Post Code',
       filter: 'agNumberColumnFilter',
       width: 100,
       floatingFilter: true,
     },
     {
       field: 'desiredDate',
-      headerName: 'Gewünschtes Datum',
+      headerName: 'Desired Date',
       filter: 'agDateColumnFilter',
       cellStyle: {
         backgroundColor: '#e3f2fd',
@@ -604,12 +611,12 @@ export class RequestComponent implements OnInit {
     },
     {
       field: 'desiredTime',
-      headerName: 'Gewünschte Zeit',
+      headerName: 'Desired Time',
       filter: 'agTextColumnFilter',
     },
     {
       field: 'serviceType',
-      headerName: 'Dienstleistung',
+      headerName: 'Service Type',
       filter: 'agTextColumnFilter',
       cellStyle: {
         fontWeight: 'bold',
@@ -618,7 +625,7 @@ export class RequestComponent implements OnInit {
     },
     {
       field: 'electricianName',
-      headerName: 'Elektriker',
+      headerName: 'Electrician',
       filter: 'agTextColumnFilter',
       cellStyle: {
         fontWeight: 'bold',
@@ -649,7 +656,7 @@ export class RequestComponent implements OnInit {
         this.rowData = requests;
       },
       error: (err) => {
-        console.error('Fehler beim Laden der Anfragen', err);
+        console.error('Error!', err);
       },
     });
   }
