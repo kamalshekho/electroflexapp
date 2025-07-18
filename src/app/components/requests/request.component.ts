@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,9 +13,10 @@ import { RequestsService } from '../../core/services/requests.service';
   templateUrl: './request.component.html',
   styleUrl: './request.component.css',
 })
-export class RequestComponent {
-  // rowData: Request[] = [];
+export class RequestComponent implements OnInit {
+  rowData: Request[] = [];
 
+  /*
   rowData: Request[] = [
     {
       id: 1,
@@ -493,6 +494,7 @@ export class RequestComponent {
       electricianId: 1,
     },
   ];
+  */
 
   colDefs: ColDef[] = [
     {
@@ -627,6 +629,10 @@ export class RequestComponent {
     private dialog: MatDialog,
     private requestService: RequestsService,
   ) {}
+
+  ngOnInit(): void {
+    this.loadRequests();
+  }
 
   openCreateRequestDialog(): void {
     const dialogRef = this.dialog.open(RequestFormComponent, {
