@@ -561,8 +561,14 @@ export class RequestComponent implements OnInit {
       },
     },
     {
-      field: 'createdDate',
-      headerName: 'Created Date',
+      field: 'creationDate',
+      headerName: 'Creation Date',
+      filter: 'agDateColumnFilter',
+      sortable: true,
+    },
+    {
+      field: 'creationTime',
+      headerName: 'Creation Time',
       filter: 'agDateColumnFilter',
       sortable: true,
     },
