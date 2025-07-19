@@ -5,7 +5,22 @@
   <div class="form-grid">
     <mat-form-field appearance="outline">
       <mat-label>Service Type</mat-label>
-      <input matInput formControlName="serviceType" required />
+      <mat-select>
+        <mat-option value="Maintenance">Maintenance</mat-option>
+        <mat-option value="Lighting Installation"
+          >Lighting Installation</mat-option
+        >
+        <mat-option value="Smoke Detector Installation">
+          Smoke Detector Installation
+        </mat-option>
+        <mat-option value="Smart Home System Installation">
+          Smart Home System Installation
+        </mat-option>
+        <mat-option value="Outdoor Lighting Installation or Repair">
+          Outdoor Lighting Installation or Repair
+        </mat-option>
+        <mat-option value="Emergency Service">Emergency Service</mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
@@ -17,9 +32,13 @@
   <h3>Desired Appointment</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
-      <mat-label>Desired Date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="desiredDate" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-label>Choose a desired date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 

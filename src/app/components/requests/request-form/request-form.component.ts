@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RequestsService } from '../../../core/services/requests.service';
 import { AuthService } from '../../../core/services/auth.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-request-form',
@@ -26,6 +27,7 @@ import { AuthService } from '../../../core/services/auth.service';
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
   ],
   templateUrl: './request-form.component.html',
   styleUrl: './request-form.component.css',
