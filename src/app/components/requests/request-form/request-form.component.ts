@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RequestsService } from '../../../core/services/requests.service';
-import { version } from 'leaflet';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
