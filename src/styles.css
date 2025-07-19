@@ -2,8 +2,7 @@
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import "ag-grid-community/styles/ag-theme-material.css";
-@import 'maplibre-gl/dist/maplibre-gl.css';
-
+@import "maplibre-gl/dist/maplibre-gl.css";
 
 html,
 body {
@@ -18,4 +17,16 @@ app-root {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+:root {
+  --mat-snack-bar-container-color: #3b8c3e;
+  --mat-snack-bar-color: white;
+  --mat-snack-bar-button-color: white;
+}
+
+.mat-snack-bar-container {
+  font-size: 30px;
+  padding: 30px 36px;
+  border-radius: 8px;
 }

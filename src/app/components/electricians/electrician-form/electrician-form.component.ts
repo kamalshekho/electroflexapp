@@ -13,6 +13,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ElectriciansService } from '../../../core/services/electricians.service';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-electrician-form',
@@ -36,6 +37,7 @@ export class ElectricianFormComponent {
     public dialogRef: MatDialogRef<ElectricianFormComponent>,
     private elcectriciansService: ElectriciansService,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private notificationService: NotificationService,
   ) {
     this.electricianForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -54,6 +56,7 @@ export class ElectricianFormComponent {
       this.elcectriciansService
         .addElectrician(this.electricianForm.value)
         .subscribe(() => {
+          this.notificationService.success('Electrician created successfully.');
           this.dialogRef.close(true);
         });
     }
