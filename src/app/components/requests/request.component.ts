@@ -512,12 +512,14 @@ export class RequestComponent implements OnInit {
       headerName: 'First Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'customerLastName',
       headerName: 'Last Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'status',
@@ -565,12 +567,14 @@ export class RequestComponent implements OnInit {
       headerName: 'Creation Date',
       filter: 'agDateColumnFilter',
       sortable: true,
+      flex: 1,
     },
     {
       field: 'creationTime',
       headerName: 'Creation Time',
       filter: 'agDateColumnFilter',
       sortable: true,
+      flex: 1,
     },
     {
       field: 'street',
@@ -578,6 +582,7 @@ export class RequestComponent implements OnInit {
       filter: 'agTextColumnFilter',
       sortable: true,
       width: 150,
+      flex: 1,
     },
     {
       field: 'houseNumber',
@@ -594,6 +599,7 @@ export class RequestComponent implements OnInit {
       field: 'city',
       headerName: 'City',
       filter: 'agTextColumnFilter',
+      flex: 1,
     },
 
     {
@@ -602,6 +608,7 @@ export class RequestComponent implements OnInit {
       filter: 'agNumberColumnFilter',
       width: 100,
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'desiredDate',
@@ -612,11 +619,13 @@ export class RequestComponent implements OnInit {
         fontWeight: 'bold',
       },
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'desiredTime',
       headerName: 'Desired Time',
       filter: 'agTextColumnFilter',
+      flex: 1,
     },
     {
       field: 'serviceType',
@@ -626,6 +635,7 @@ export class RequestComponent implements OnInit {
         fontWeight: 'bold',
         backgroundColor: '#f5f5f5',
       },
+      flex: 1,
     },
     {
       field: 'electricianName',
@@ -634,6 +644,7 @@ export class RequestComponent implements OnInit {
       cellStyle: {
         fontWeight: 'bold',
       },
+      flex: 1,
     },
   ];
 
