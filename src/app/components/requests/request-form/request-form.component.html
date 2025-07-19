@@ -5,7 +5,7 @@
   <div class="form-grid">
     <mat-form-field appearance="outline">
       <mat-label>Service Type</mat-label>
-      <mat-select>
+      <mat-select formControlName="serviceType">
         <mat-option value="Maintenance">Maintenance</mat-option>
         <mat-option value="Lighting Installation"
           >Lighting Installation</mat-option
@@ -33,7 +33,7 @@
   <div class="form-grid">
     <mat-form-field appearance="outline">
       <mat-label>Choose a desired date</mat-label>
-      <input matInput [matDatepicker]="picker" />
+      <input matInput [matDatepicker]="picker" formControlName="desiredDate" />
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle
         matIconSuffix

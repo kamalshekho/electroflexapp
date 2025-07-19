@@ -15,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RequestsService } from '../../../core/services/requests.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { MatSelectModule } from '@angular/material/select';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-request-form',
@@ -40,6 +41,8 @@ export class RequestFormComponent {
     @Optional() public dialogRef: MatDialogRef<RequestFormComponent>,
     private requestsService: RequestsService,
     private authService: AuthService,
+    private notificationService: NotificationService,
+
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.requestForm = this.fb.group({
@@ -60,7 +63,15 @@ export class RequestFormComponent {
 
   onSubmit(): void {
     if (this.requestForm.valid) {
-      this.requestsService.addRequest(this.requestForm.value).subscribe(() => {
+      const formValue = { ...this.requestForm.value };
+
+      if (formValue.desiredDate) {
+        const date: Date = formValue.desiredDate;
+        formValue.desiredDate = date.toISOString().split('T')[0];
+      }
+
+      this.requestsService.addRequest(formValue).subscribe(() => {
+        this.notificationService.success('Request created successfully.');
         this.dialogRef.close(true);
       });
     }

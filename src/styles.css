@@ -19,17 +19,14 @@ app-root {
   height: 100%;
 }
 
-.success-snackbar {
-  background-color: #3b8c3e;
-  color: white;
+:root {
+  --mat-snack-bar-container-color: #3b8c3e;
+  --mat-snack-bar-color: white;
+  --mat-snack-bar-button-color: white;
 }
 
-.error-snackbar {
-  background-color: #d44238;
-  color: white;
-}
-
-.info-snackbar {
-  background-color: #2f88d1;
-  color: white;
+.mat-snack-bar-container {
+  font-size: 30px;
+  padding: 30px 36px;
+  border-radius: 8px;
 }
