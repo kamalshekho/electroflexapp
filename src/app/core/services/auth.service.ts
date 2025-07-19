@@ -43,7 +43,7 @@ export class AuthService {
     //   customerId: 1,
     // };
 
-    // // Original fallback:
+    // Original fallback:
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   }
