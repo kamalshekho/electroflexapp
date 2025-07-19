@@ -1,3 +1,39 @@
-<p>
-  electrician-form works!
-</p>
+<form
+  [formGroup]="electricianForm"
+  class="electrician-form"
+  (ngSubmit)="onSubmit()"
+>
+  <h2 class="dialog-title">New Electician</h2>
+  <h3>Name</h3>
+  <div class="form-grid">
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required />
+    </mat-form-field>
+  </div>
+
+  <h3>Contact Details</h3>
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" required />
+    </mat-form-field>
+  </div>
+
+  <div class="form-actions">
+    <button mat-stroked-button type="button" (click)="onCancel()">
+      Cancel
+    </button>
+    <button mat-flat-button color="primary" type="submit">Save</button>
+  </div>
+</form>

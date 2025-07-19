@@ -1,0 +1,39 @@
+.electrician-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.dialog-title {
+  margin-bottom: 6px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h3 {
+  margin-top: 6px;
+  margin-bottom: 3px;
+  font-weight: 500;
+  color: #444;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 10px;
+}

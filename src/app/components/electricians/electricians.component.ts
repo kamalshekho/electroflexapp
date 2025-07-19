@@ -32,12 +32,14 @@ export class ElectriciansComponent implements OnInit {
       headerName: 'First Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'lastName',
       headerName: 'Last Name',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'isAvailable',
@@ -54,12 +56,14 @@ export class ElectriciansComponent implements OnInit {
       headerName: 'Email',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      flex: 1,
     },
     {
       field: 'phone',
       headerName: 'Phone',
       filter: 'agTextColumnFilter',
       floatingFilter: true,
+      flex: 1,
     },
   ];
 

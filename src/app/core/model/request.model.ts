@@ -24,6 +24,7 @@ export interface Request {
   phone: string;
   serviceType: string;
   description: string;
+  status: string;
 }
 
 export enum RequestStatus {
