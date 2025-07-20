@@ -13,4 +13,18 @@
       <div class="card-value">{{ openRequests.length }}</div>
     </div>
   </div>
+  <div class="charts-container">
+    <div class="pie-chart">
+      <ag-charts
+        [options]="pieChartOptions"
+        style="width: 100%; height: 400px"
+      ></ag-charts>
+    </div>
+    <div class="bar-chart">
+      <ag-charts
+        [options]="barChartOptions"
+        style="width: 100%; height: 400px"
+      ></ag-charts>
+    </div>
+  </div>
 </div>

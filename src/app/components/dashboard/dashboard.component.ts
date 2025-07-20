@@ -3,10 +3,11 @@ import { Electrician } from '../../core/model/electricians.model';
 import { ElectriciansService } from '../../core/services/electricians.service';
 import { RequestsService } from '../../core/services/requests.service';
 import { Request } from '../../core/model/request.model';
+import { AgCharts } from 'ag-charts-angular';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [AgCharts],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
@@ -14,6 +15,9 @@ export class DashboardComponent {
   electricians: Electrician[] = [];
   openRequests: Request[] = [];
   availableElectricians: Electrician[] = [];
+
+  pieChartOptions: any;
+  barChartOptions: any;
 
   constructor(
     private requestsService: RequestsService,
@@ -29,6 +33,23 @@ export class DashboardComponent {
       next: (data) => {
         this.electricians = data;
         this.availableElectricians = data.filter((e) => e.isAvailable);
+
+        const unavailableCount =
+          data.length - this.availableElectricians.length;
+
+        this.pieChartOptions = {
+          data: [
+            { status: 'Available', count: this.availableElectricians.length },
+            { status: 'Unavailable', count: unavailableCount },
+          ],
+          series: [
+            {
+              type: 'pie',
+              angleKey: 'count',
+              legendItemKey: 'status',
+            },
+          ],
+        };
       },
     });
 
