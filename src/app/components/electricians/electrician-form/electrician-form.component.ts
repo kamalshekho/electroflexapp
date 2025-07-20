@@ -50,7 +50,7 @@ export class ElectricianFormComponent {
   }
 
   public onCancel(): void {
-    this.dialogRef.close;
+    this.dialogRef.close();
   }
 
   public onSubmit(): void {
