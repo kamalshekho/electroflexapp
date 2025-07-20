@@ -551,6 +551,12 @@ export class RequestComponent implements OnInit {
               color: 'black',
               fontWeight: '',
             };
+          case RequestStatus.CLOSED:
+            return {
+              backgroundColor: '#80ff80',
+              color: 'black',
+              fontWeight: '',
+            };
           default:
             return {
               backgroundColor: 'grey',
