@@ -56,6 +56,32 @@ export class DashboardComponent {
     this.requestsService.getAllRequests().subscribe({
       next: (data) => {
         this.openRequests = data.filter((r) => r.status === 'Open');
+
+        const statusCounts: { [key: string]: number } = {};
+        data.forEach((req) => {
+          statusCounts[req.status] = (statusCounts[req.status] || 0) + 1;
+        });
+
+        const barChartData = Object.keys(statusCounts).map((status) => ({
+          status,
+          count: statusCounts[status],
+        }));
+
+        this.barChartOptions = {
+          data: barChartData,
+          series: [
+            {
+              type: 'bar',
+              xKey: 'status',
+              yKey: 'count',
+              fill: '#4e73df',
+            },
+          ],
+          axes: [
+            { type: 'category', position: 'bottom' },
+            { type: 'number', position: 'left' },
+          ],
+        };
       },
     });
   }
