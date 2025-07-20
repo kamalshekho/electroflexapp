@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ElectriciansService } from '../../../core/services/electricians.service';
 import { NotificationService } from '../../../core/services/notification.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-electrician-form',
@@ -25,6 +26,7 @@ import { NotificationService } from '../../../core/services/notification.service
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
   ],
   templateUrl: './electrician-form.component.html',
   styleUrls: ['./electrician-form.component.css'],
@@ -40,10 +42,10 @@ export class ElectricianFormComponent {
     private notificationService: NotificationService,
   ) {
     this.electricianForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required]],
     });
   }
 

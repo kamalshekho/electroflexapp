@@ -3,17 +3,52 @@
   class="electrician-form"
   (ngSubmit)="onSubmit()"
 >
-  <h2 class="dialog-title">New Electician</h2>
+  <h2 class="dialog-title">New Electrician</h2>
+
   <h3>Name</h3>
   <div class="form-grid">
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
       <input matInput formControlName="firstName" required />
+      <mat-icon
+        *ngIf="
+          electricianForm.get('firstName')?.valid &&
+          electricianForm.get('firstName')?.touched
+        "
+        style="color: green"
+        matSuffix
+      >
+        check_circle
+      </mat-icon>
+      <mat-error *ngIf="electricianForm.get('firstName')?.hasError('required')">
+        First name is required
+      </mat-error>
+      <mat-error
+        *ngIf="electricianForm.get('firstName')?.hasError('minlength')"
+      >
+        Minimum 2 characters required
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName" required />
+      <mat-icon
+        *ngIf="
+          electricianForm.get('lastName')?.valid &&
+          electricianForm.get('lastName')?.touched
+        "
+        style="color: green"
+        matSuffix
+      >
+        check_circle
+      </mat-icon>
+      <mat-error *ngIf="electricianForm.get('lastName')?.hasError('required')">
+        Last name is required
+      </mat-error>
+      <mat-error *ngIf="electricianForm.get('lastName')?.hasError('minlength')">
+        Minimum 2 characters required
+      </mat-error>
     </mat-form-field>
   </div>
 
@@ -22,11 +57,49 @@
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" required />
+      <mat-icon
+        *ngIf="
+          electricianForm.get('email')?.valid &&
+          electricianForm.get('email')?.touched
+        "
+        style="color: green"
+        matSuffix
+      >
+        check_circle
+      </mat-icon>
+      <mat-error *ngIf="electricianForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="electricianForm.get('email')?.hasError('email')">
+        Please enter a valid email address
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Phone</mat-label>
-      <input matInput formControlName="phone" required />
+      <input
+        matInput
+        formControlName="phone"
+        required
+        inputmode="tel"
+        autocomplete="tel"
+      />
+      <mat-icon
+        *ngIf="
+          electricianForm.get('phone')?.valid &&
+          electricianForm.get('phone')?.touched
+        "
+        style="color: green"
+        matSuffix
+      >
+        check_circle
+      </mat-icon>
+      <mat-error *ngIf="electricianForm.get('phone')?.hasError('required')">
+        Phone number is required
+      </mat-error>
+      <mat-error *ngIf="electricianForm.get('phone')?.hasError('pattern')">
+        Please enter a valid phone number
+      </mat-error>
     </mat-form-field>
   </div>
 
@@ -34,6 +107,13 @@
     <button mat-stroked-button type="button" (click)="onCancel()">
       Cancel
     </button>
-    <button mat-flat-button color="primary" type="submit">Save</button>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="electricianForm.invalid"
+    >
+      Save
+    </button>
   </div>
 </form>
