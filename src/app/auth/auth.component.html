@@ -11,44 +11,177 @@
 
         <div class="form-grid">
           <div class="grid-50">
-            <input formControlName="firstName" placeholder="First Name" />
+            <div class="input-icon">
+              <i class="fas fa-user"></i>
+              <input formControlName="firstName" placeholder="First Name" />
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                registerForm.get('firstName')?.invalid &&
+                registerForm.get('firstName')?.touched
+              "
+            >
+              <small *ngIf="registerForm.get('firstName')?.errors?.['required']"
+                >First name is required.</small
+              >
+            </div>
           </div>
+
           <div class="grid-50">
-            <input formControlName="lastName" placeholder="Last Name" />
+            <div class="input-icon">
+              <i class="fas fa-user"></i>
+              <input formControlName="lastName" placeholder="Last Name" />
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                registerForm.get('lastName')?.invalid &&
+                registerForm.get('lastName')?.touched
+              "
+            >
+              <small *ngIf="registerForm.get('lastName')?.errors?.['required']"
+                >Last name is required.</small
+              >
+            </div>
           </div>
 
           <div class="grid-100">
-            <input formControlName="username" placeholder="User Name" />
+            <div class="input-icon valid-wrapper">
+              <i class="fas fa-user-circle"></i>
+              <input formControlName="username" placeholder="User Name" />
+              <i
+                class="fas fa-check-circle valid-icon"
+                *ngIf="
+                  registerForm.get('username')?.valid &&
+                  registerForm.get('username')?.touched
+                "
+              ></i>
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                registerForm.get('username')?.invalid &&
+                registerForm.get('username')?.touched
+              "
+            >
+              <small *ngIf="registerForm.get('username')?.errors?.['required']"
+                >Username is required.</small
+              >
+            </div>
           </div>
 
           <div class="grid-100">
-            <input formControlName="email" type="email" placeholder="Email" />
+            <div class="input-icon valid-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input formControlName="email" type="email" placeholder="Email" />
+              <i
+                class="fas fa-check-circle valid-icon"
+                *ngIf="
+                  registerForm.get('email')?.valid &&
+                  registerForm.get('email')?.touched
+                "
+              ></i>
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                registerForm.get('email')?.invalid &&
+                registerForm.get('email')?.touched
+              "
+            >
+              <small *ngIf="registerForm.get('email')?.errors?.['required']"
+                >Email is required.</small
+              >
+              <small *ngIf="registerForm.get('email')?.errors?.['email']"
+                >Invalid email format.</small
+              >
+            </div>
           </div>
 
           <div class="grid-100">
-            <input formControlName="phone" placeholder="Phone" />
+            <div class="input-icon valid-wrapper">
+              <i class="fas fa-phone"></i>
+              <input formControlName="phone" placeholder="Phone" />
+              <i
+                class="fas fa-check-circle valid-icon"
+                *ngIf="
+                  registerForm.get('phone')?.valid &&
+                  registerForm.get('phone')?.touched
+                "
+              ></i>
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                registerForm.get('phone')?.invalid &&
+                registerForm.get('phone')?.touched
+              "
+            >
+              <small *ngIf="registerForm.get('phone')?.errors?.['required']"
+                >Phone is required.</small
+              >
+            </div>
           </div>
 
           <div class="grid-100">
-            <input
-              formControlName="password"
-              type="password"
-              placeholder="Password"
-            />
+            <div class="input-icon valid-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="Password"
+              />
+              <i
+                class="fas fa-check-circle valid-icon"
+                *ngIf="
+                  registerForm.get('password')?.valid &&
+                  registerForm.get('password')?.touched
+                "
+              ></i>
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                registerForm.get('password')?.invalid &&
+                registerForm.get('password')?.touched
+              "
+            >
+              <small *ngIf="registerForm.get('password')?.errors?.['required']"
+                >Password is required.</small
+              >
+              <small *ngIf="registerForm.get('password')?.errors?.['minlength']"
+                >Minimum 6 characters required.</small
+              >
+            </div>
           </div>
 
           <div class="grid-75">
-            <input formControlName="street" placeholder="Street" />
+            <div class="input-icon">
+              <i class="fas fa-road"></i>
+              <input formControlName="street" placeholder="Street" />
+            </div>
           </div>
+
           <div class="grid-25">
-            <input formControlName="houseNumber" placeholder="Nr." />
+            <div class="input-icon">
+              <i class="fas fa-home"></i>
+              <input formControlName="houseNumber" placeholder="Nr." />
+            </div>
           </div>
 
           <div class="grid-30">
-            <input formControlName="postCode" placeholder="Postal Code" />
+            <div class="input-icon">
+              <i class="fas fa-envelope-open-text"></i>
+              <input formControlName="postCode" placeholder="Postal Code" />
+            </div>
           </div>
+
           <div class="grid-70">
-            <input formControlName="city" placeholder="City" />
+            <div class="input-icon">
+              <i class="fas fa-city"></i>
+              <input formControlName="city" placeholder="City" />
+            </div>
           </div>
         </div>
 
@@ -61,12 +194,56 @@
         <h1>Sign in</h1>
         <span>or use your account</span>
 
-        <input formControlName="email" type="email" placeholder="Email" />
-        <input
-          formControlName="password"
-          type="password"
-          placeholder="Passwort"
-        />
+        <div class="input-icon valid-wrapper">
+          <i class="fas fa-envelope"></i>
+          <input formControlName="email" type="email" placeholder="Email" />
+          <i
+            class="fas fa-check-circle valid-icon"
+            *ngIf="
+              loginForm.get('email')?.valid && loginForm.get('email')?.touched
+            "
+          ></i>
+        </div>
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+          "
+        >
+          <small *ngIf="loginForm.get('email')?.errors?.['required']"
+            >Email is required.</small
+          >
+          <small *ngIf="loginForm.get('email')?.errors?.['email']"
+            >Invalid email format.</small
+          >
+        </div>
+
+        <div class="input-icon valid-wrapper">
+          <i class="fas fa-lock"></i>
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+          />
+          <i
+            class="fas fa-check-circle valid-icon"
+            *ngIf="
+              loginForm.get('password')?.valid &&
+              loginForm.get('password')?.touched
+            "
+          ></i>
+        </div>
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <small *ngIf="loginForm.get('password')?.errors?.['required']"
+            >Password is required.</small
+          >
+        </div>
 
         <a href="#">Forgot your password?</a>
         <button type="submit">Sign In</button>

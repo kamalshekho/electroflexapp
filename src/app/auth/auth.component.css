@@ -285,3 +285,30 @@ input::placeholder {
     grid-column: span 12 !important;
   }
 }
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.input-icon i.valid-icon {
+  right: 10px; /* rechtsbündig innerhalb des Input-Wrappers */
+  left: auto; /* sicherstellen, dass left überschrieben wird */
+  color: green;
+  font-size: 18px;
+}
+
+.input-icon input {
+  padding-left: 30px;
+}
+
+.error small {
+  color: red;
+  font-size: 12px;
+}
