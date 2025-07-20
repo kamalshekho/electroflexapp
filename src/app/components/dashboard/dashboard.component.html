@@ -12,19 +12,37 @@
       <div class="card-title">Open Requests</div>
       <div class="card-value">{{ openRequests.length }}</div>
     </div>
+    <div class="number-card total-requests">
+      <div class="card-title">Total Requests</div>
+      <div class="card-value">{{ totalRequests.length }}</div>
+    </div>
   </div>
+
   <div class="charts-container">
-    <div class="pie-chart">
+    <div class="chart-half">
       <h3>Electricians Availability</h3>
       <ag-charts
+        *ngIf="pieChartOptions"
         [options]="pieChartOptions"
         style="width: 100%; height: 400px"
       ></ag-charts>
     </div>
-    <div class="bar-chart">
+    <div class="chart-half">
       <h3>Requests Status Overview</h3>
       <ag-charts
+        *ngIf="barChartOptions"
         [options]="barChartOptions"
+        style="width: 100%; height: 400px"
+      ></ag-charts>
+    </div>
+  </div>
+
+  <div class="charts-container">
+    <div class="chart-full">
+      <h3>Monthly Requests Trend</h3>
+      <ag-charts
+        *ngIf="areaChartOptions"
+        [options]="areaChartOptions"
         style="width: 100%; height: 400px"
       ></ag-charts>
     </div>
