@@ -73,7 +73,7 @@ export class ElectriciansComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.loadElectricians();
+    this.loadElectricians()
   }
 
   public openElectricianDialog(): void {
@@ -86,17 +86,14 @@ export class ElectriciansComponent implements OnInit {
 
   public onAvailabilityChanged(params: any): void {
     const electrician: Electrician = params.data;
-    const newAvailability = params.newValue;
 
     this.electriciansService.toggleAvailability(electrician.id).subscribe({
       next: () => {
         console.log(`Availability toggled for ID ${electrician.id}`);
-
-        this.loadElectricians();
+        this.loadElectricians()
       },
       error: (err) => {
         console.error('Error toggling availability', err);
-        params.node.setDataValue('isAvailable', params.oldValue);
       },
     });
   }

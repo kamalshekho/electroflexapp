@@ -628,7 +628,7 @@ export class RequestComponent implements OnInit {
       },
     },
     {
-      field: 'electricianName',
+      field: 'electricianNumber',
       headerName: 'Electrician',
       filter: 'agTextColumnFilter',
       cellStyle: {

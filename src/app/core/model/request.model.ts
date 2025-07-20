@@ -11,7 +11,7 @@ export interface Request {
   id: number;
   createdDate: string;
   createdTime: string;
-  electricianId?: number;
+  electricianNumber?: number;
   street: string;
   houseNumber: string;
   postCode: number;
