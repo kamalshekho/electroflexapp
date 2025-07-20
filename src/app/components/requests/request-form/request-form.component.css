@@ -1,5 +1,7 @@
 .request-form {
+  margin-top: 1rem;
   display: flex;
+  background-color: white;
   flex-direction: column;
   gap: 5px;
   max-height: 90vh;
