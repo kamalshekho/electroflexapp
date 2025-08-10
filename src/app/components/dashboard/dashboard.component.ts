@@ -46,6 +46,9 @@ export class DashboardComponent {
             { status: 'Available', count: this.availableElectricians.length },
             { status: 'Unavailable', count: unavailableCount },
           ],
+          title: {
+            text: 'Electricians Availability',
+          },
           series: [
             {
               type: 'pie',
@@ -69,6 +72,9 @@ export class DashboardComponent {
             { status: 'Open', count: this.openRequests.length },
             { status: 'Closed', count: closedRequests },
           ],
+          title: {
+            text: 'Requests Status Overview',
+          },
           series: [
             {
               type: 'bar',
@@ -97,6 +103,9 @@ export class DashboardComponent {
         { month: 'Nov', requests: 19 },
         { month: 'Dec', requests: 23 },
       ],
+      title: {
+        text: 'Monthly Requests Trend',
+      },
       series: [
         {
           type: 'area',
