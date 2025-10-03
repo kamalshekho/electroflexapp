@@ -1,10 +1,19 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
+import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [
+        provideRouter(routes),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ],
     }).compileComponents();
   });
 
@@ -18,8 +27,12 @@ describe('App', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Hello, ElectroFlexApp',
-    );
+    // The app.component.html does not contain an h1 with 'Hello, ElectroFlexApp'
+    // Adjust the test to check for presence of app-sidebar or app-main or router-outlet
+    expect(
+      compiled.querySelector('app-sidebar') ||
+        compiled.querySelector('app-main') ||
+        compiled.querySelector('router-outlet'),
+    ).toBeTruthy();
   });
 });

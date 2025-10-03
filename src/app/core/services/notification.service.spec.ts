@@ -1,16 +1,18 @@
-/* tslint:disable:no-unused-variable */
+import { TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NotificationService } from './notification.service';
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { NotificatioService } from './notificatio.service';
+describe('NotificationService', () => {
+  let service: NotificationService;
 
-describe('Service: Notificatio', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NotificatioService]
+      imports: [MatSnackBarModule],
     });
+    service = TestBed.inject(NotificationService);
   });
 
-  it('should ...', inject([NotificatioService], (service: NotificatioService) => {
+  it('should be created', () => {
     expect(service).toBeTruthy();
-  }));
+  });
 });
