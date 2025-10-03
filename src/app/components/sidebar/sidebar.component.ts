@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
+import { MenuService } from '../../core/services/menu.service';
 import { MenuItem } from '../../interfaces/menuItem';
 
 @Component({
@@ -27,9 +28,10 @@ export class SidebarComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
+    private menuService: MenuService,
   ) {
     const user = this.authService.getCurrentUser();
-    const role = user?.role;
+    const role = user?.role || '';
 
     const items = this.router.config
       .filter((route) => route.data?.['label'])
@@ -39,25 +41,9 @@ export class SidebarComponent {
         icon: route.data!['icon'],
       }));
 
-    if (role === 'admin') {
-      this.mainMenuItems = items.filter((item) =>
-        ['Dashboard', 'Requests', 'Map', 'Electricians'].includes(item.label),
-      );
-      this.secondaryMenuItems = items.filter(
-        (item) => item.label === 'Settings',
-      );
-    } else if (role === 'client') {
-      this.mainMenuItems = items.filter((item) => item.label === 'New Request');
-    } else {
-      this.mainMenuItems = [];
-      this.secondaryMenuItems = [];
-    }
-
-    this.secondaryMenuItems.push({
-      routerLink: '',
-      label: 'Logout',
-      icon: 'fa-solid fa-arrow-right-from-bracket',
-    });
+    const filteredMenus = this.menuService.getFilteredMenus(role, items);
+    this.mainMenuItems = filteredMenus.main;
+    this.secondaryMenuItems = filteredMenus.secondary;
   }
 
   public logout(): void {
